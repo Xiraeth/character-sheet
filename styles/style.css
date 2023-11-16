@@ -107,3 +107,7 @@ body {
 	color: var(--main-text-color);
 	text-decoration: none;
 }
+
+.hidden {
+	display: none;
+}

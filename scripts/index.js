@@ -1,36 +1,13 @@
 'use strict';
 
-const stats = document.querySelector(".stats");
 const barsIcon = document.querySelector(".menuIcon i");
 const xmarkIcon = document.querySelector(".leftNavbar i");
 const menu = document.querySelector(".leftNavbar");
-
-stats.addEventListener("input", (e) => {
-  getModifier(e.target);
-});
+const showMoreButton = document.querySelector(".fa-circle-chevron-down");
 
 barsIcon.addEventListener("click", showMenu);
 xmarkIcon.addEventListener("click", hideMenu);
-
-function getModifier(abilityScoreElement) {
-	let modifierSpan =
-    abilityScoreElement.parentElement.querySelector(".modifier");
-		
-  let content = abilityScoreElement.textContent;
-  let numericContent = content.replace(/\D/g, "");
-  abilityScoreElement.textContent = numericContent;
-		
-	if (abilityScoreElement.textContent == "") {
-		modifierSpan.textContent = "(...)";
-		return;
-	}
-	
-  let abilityScore = parseInt(numericContent);
-  let modifier = Math.floor((abilityScore - 10) / 2);
-
-  modifierSpan.textContent = `(${modifier >= 0 ? "+" : ""}${modifier})`;
-}
-
+showMoreButton.addEventListener("click", toggleFullTable);
 
 function showMenu() {
 	menu.style.transform = 'translateX(0)';
@@ -38,4 +15,20 @@ function showMenu() {
 
 function hideMenu() {
 	menu.style.transform = 'translateX(-100px)';
+}
+
+function toggleFullTable(){
+	const allHiddenRows = document.querySelectorAll(".initiallyHidden");
+	
+	if (showMoreButton.classList.contains('fa-circle-chevron-up')) {
+		allHiddenRows.forEach(row => {
+			row.classList.add('hidden');
+			showMoreButton.className = "fa-solid fa-circle-chevron-down";
+		});
+	} else {
+		allHiddenRows.forEach(row => {
+			row.classList.remove('hidden');
+		});
+		showMoreButton.className = "fa-solid fa-circle-chevron-up";
+	}
 }
