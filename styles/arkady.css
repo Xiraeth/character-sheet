@@ -1,170 +1,170 @@
 #character-details {
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	text-align: center;
-	align-items: center;
-	margin: 20px auto 0;
-	gap: 10px;
-	border-bottom: 1px solid var(--main-text-color);
-	padding-bottom: 20px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin: 20px auto 0;
+  gap: 10px;
+  border-bottom: 1px solid var(--main-text-color);
+  padding-bottom: 20px;
 }
 
 #rogueLevel {
-	outline: none;
-	font-family: serif;
-	border: 1px solid rgba(0,0,0,0);
-	border-radius: 5px;
-	padding: 3px 10px;
+  outline: none;
+  font-family: serif;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 5px;
+  padding: 3px 10px;
 }
 
 #rogueLevel:focus {
-	border: 1px solid white;
+  border: 1px solid white;
 }
 
 #alignment {
-	flex-grow: 1;
+  flex-grow: 1;
 }
 
 #character-details > div {
-	color: var(--main-text-color);
-	width: 45%;
-	font-size: 1.2rem;
+  color: var(--main-text-color);
+  width: 45%;
+  font-size: 1.2rem;
 }
 
-#HP{
-	width: 100%;
-	padding: 20px;
-	background: rgba(40, 42, 52, 0.5);
-	margin: auto;
-	height: 140px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 10px;
+#HP {
+  width: 100%;
+  padding: 20px;
+  background: rgba(40, 42, 52, 0.5);
+  margin: auto;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 #maximumHPdiv {
-	font-size: 1rem;
-	width: 80%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	color: #FF6347bb;
-	font-style: italic;
+  font-size: 1rem;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ff6347bb;
+  font-style: italic;
 }
 
 #maximumHPdiv span {
-	font-family: sans-serif;
-	width: 50px;
-	text-align: right;
-	outline: none;
-	padding: 5px;
+  font-family: sans-serif;
+  min-width: 50px;
+  text-align: right;
+  outline: none;
+  padding: 5px;
 }
 
 #currentHPdiv {
-	font-family: chance;
-	width: 80%;
-	font-size: 1.5rem;
-	color: var(--secondary-text-color);
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-#tempHPdiv {
-	font-family: mord;
-	font-size: 1.2rem;
-	font-style: italic;
-	width: 80%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	opacity: 0.7;
-}
-
-#tempHPdiv span {
-	font-family: sans-serif;
-	color: var(--main-text-color);
-	width: 50px;
-	text-align: right;
-	outline: none;
-	padding: 5px;
+  font-family: chance;
+  width: 80%;
+  font-size: 1.5rem;
+  color: var(--secondary-text-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #currentHPdiv span {
-	font-family: sans-serif;
-	font-size: 1.5rem;
-	color: var(--main-text-color);
-	width: 50px;
-	text-align: right;
-	outline: none;
-	padding: 5px;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  color: var(--main-text-color);
+  min-width: 50px;
+  text-align: right;
+  outline: none;
+  padding: 5px;
+}
+
+#tempHPdiv {
+  font-family: mord;
+  font-size: 1.2rem;
+  font-style: italic;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0.7;
+}
+
+#tempHPdiv span {
+  font-family: sans-serif;
+  color: var(--main-text-color);
+  min-width: 50px;
+  text-align: right;
+  outline: none;
+  padding: 5px;
 }
 
 #maximumHPdiv span:focus {
-	border: 1px solid var(--main-text-color);
-	border-radius: 5px;
+  border: 1px solid var(--main-text-color);
+  border-radius: 5px;
 }
 
 #tempHPdiv span:focus {
-	border: 1px solid var(--main-text-color);
-	border-radius: 5px;
+  border: 1px solid var(--main-text-color);
+  border-radius: 5px;
 }
 
 #currentHPdiv span:focus {
-	border: 1px solid var(--main-text-color);
-	border-radius: 5px;
+  border: 1px solid var(--main-text-color);
+  border-radius: 5px;
 }
 
 .armorClassSpeedInit {
-	border-top: 1px solid var(--main-text-color);
-	background-color: var(--bg-color-secondary);
-	width: 100%;
-	padding: 20px 20px;
-	margin: auto;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  border-top: 1px solid var(--main-text-color);
+  background-color: var(--bg-color-secondary);
+  width: 100%;
+  padding: 20px 20px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .armorClassSpeedInit > div {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .armorClassSpeedInit > div > div:first-child {
-	font-family: sans-serif;
-	font-size: 1.5rem;
-	outline: none;
-	border: 1px solid rgba(0,0,0,0);
-	padding: 5px 10px;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0);
+  padding: 5px 10px;
 }
 
 .armorClassSpeedInit > div > div:first-child:focus {
-	border: 1px solid var(--main-text-color);
-	border-radius: 5px;
+  border: 1px solid var(--main-text-color);
+  border-radius: 5px;
 }
 
 .armorClassSpeedInit > div > div:last-child {
-	text-align: center;
-	font-size: 1.3rem;
-	font-weight: bold;
-	color: var(--secondary-text-color);
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--secondary-text-color);
 }
 
 .stats {
   background: var(--bg-color-secondary);
   padding: 40px 0;
   width: 100%;
-	margin: auto;
+  margin: auto;
   border-bottom: 1px solid var(--main-text-color);
-	border-top: 1px solid var(--main-text-color);
+  border-top: 1px solid var(--main-text-color);
   font-family: mordred;
   text-align: center;
   color: white;
@@ -175,24 +175,23 @@
   gap: 17px;
 }
 
-
 .stats b {
-	font-family: mord, serif;
+  font-family: mord, serif;
   font-size: 1.3rem;
-	color: var(--secondary-text-color);
+  color: var(--secondary-text-color);
 }
 
 .stats span {
   font-size: 1.1rem;
-	font-family: sans-serif;
+  font-family: sans-serif;
   outline: none;
-	border: 1px solid rgba(0,0,0,0);
-	border-radius: 5px;
-	padding: 5px 5px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 5px;
+  padding: 5px 5px;
 }
 
 .stats span:focus {
-	border: 1px solid white;
+  border: 1px solid white;
 }
 
 .stats > div {
@@ -202,6 +201,6 @@
 }
 
 .stats > div > div {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 }

@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Mobile phone character sheet" />
+    <meta name="keywords" content="dnd, characterSheet, tabletop, rpg, game" />
+    <meta name="author" content="Xiraeth" />
+    <title>Race info</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="icon" type="image/x-icon" href="images/dnd.webp" />
+    <script
+      src="https://kit.fontawesome.com/00de2a7224.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="scripts/race.js" defer></script>
+  </head>
 
-	<head>
-		<meta charset='UTF-8'>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="Mobile phone character sheet">
-    <meta name="keywords" content="dnd, characterSheet, tabletop, rpg, game">
-    <meta name="author" content="Xiraeth">
-		<title>Race info</title>
-		<link rel="stylesheet" href="styles/style.css">
-		<link rel="icon" type="image/x-icon" href="images/dnd.webp">
-		<script src="https://kit.fontawesome.com/00de2a7224.js" crossorigin="anonymous"></script>
-		<script src="scripts/race.js" defer></script>
-	</head>
-	
-	<!-- 
+  <!-- 
 		Size: small
 		Speed: 30ft
 		Ability score increase: DEX
@@ -23,101 +25,88 @@
 		Variable Trait: 
 	-->
 
-	<body>
-		<div class="menuIcon">
-				<i class="fa-solid fa-bars"></i>
-		</div>
-		
-		<div class="leftNavbar">
-			<i class="fa-solid fa-xmark"></i>
-			<div><a href="index.html">Arkady</a></div>
-			<div><a href="race.html">Race</a></div>
-			<div><a href="rogue.html">Class</a></div>
-		</div>
-		
-		<div id="character-name">Vastaya</div>
-		
-		<div id="race-info">
-			The Vastaya are a chimeric race of Runeterra that are the weaker
-			magical descendants from enlightened mortals that took the power
-			of the spirit realm into themselves. Vastaya can look considerably
-			different from one another, but they all share animal and human characteristics.
-		</div>
-		
-		<div id="race-details">
-			<div class="creature-type">
-				<h3>Creature Type</h3>
-				<p>
-					Humanoid. Lean and agile, your main characteristic is the endearing
-					raccoon features that adorn your appearance. The ringed tail following you
-					wherever you go and the dark circles that envelop your eyes.
-				</p>
-			</div>
-			<div class="size">
-				<h3>
-					Size
-				</h3>
-				<p>
-					Bearing the slippery figure of a thief, your size varies between
-					small and medium (your choice). 
-					<span class="raceSpecificFeatures">(Medium)</span>
-				</p>
-			</div>
-			<div class="speed">
-				<h3>
-					Speed
-				</h3>
-				<p>
-					Your experience in heists and running away from dire situations
-					has led your kind to be quick on its feet, resulting in a speed faster
-					than most creatures.
-					<br/>
-					Your speed is 35 ft.
-				</p>
-			</div>
-			<div class="ability-score-increase">
-				<h3>
-					Ability Score Increase
-				</h3>
-				<p>
-					One ability score of your choice increases by 2.
-					<span class="raceSpecificFeatures">(Dexterity)</span>
-				</p>
-			</div>
-			<div class="feat">
-				<h3>
-					Feat
-				</h3>
-				<p>
-					You gain one feat of your choice for which you qualify. 
-					<span class="raceSpecificFeatures">(Mobile)</span>
-				</p>
-			</div>
-			<div class="variable-trait">
-				<h3>
-					Variable Trait
-				</h3>
-				<p>
-					You gain one of the following options of your choice:
-					<br/>
-					<span class="raceSpecificFeatures">-Proficiency in one skill of your 
-					choice 
-					(Perception).</span>
-					<br/>
-					-Darkvision with a range of 60 feet.
-				</p>
-			</div>
-			<div class="languages">
-				<h3>
-					Language
-				</h3>
-				<p>
-					You can speak, read, and write Common and one other language that you 
-					and your DM agree is appropriate for your character
-					<span class="raceSpecificFeatures">(Elven).</span>
-				</p>
-			</div>
-		</div>
-	</body>
+  <body>
+    <div class="menuIcon">
+      <i class="fa-solid fa-bars"></i>
+    </div>
 
+    <div class="leftNavbar">
+      <i class="fa-solid fa-xmark"></i>
+      <div><a href="index.html">Arkady</a></div>
+      <div><a href="race.html">Race</a></div>
+      <div><a href="rogue.html">Class</a></div>
+    </div>
+
+    <div id="character-name">Vastaya</div>
+
+    <div id="race-info">
+      The Vastaya are a chimeric race of Runeterra that are the weaker magical
+      descendants from enlightened mortals that took the power of the spirit
+      realm into themselves. Vastaya can look considerably different from one
+      another, but they all share animal and human characteristics.
+    </div>
+
+    <div id="race-details">
+      <div class="creature-type">
+        <h3>Creature Type</h3>
+        <p>
+          Humanoid. Lean and agile, your main characteristic is the endearing
+          raccoon features that adorn your appearance: the ringed tail following
+          you wherever you go and the dark circles that envelop your eyes.
+        </p>
+      </div>
+      <div class="size">
+        <h3>Size</h3>
+        <p>
+          Bearing the slippery figure of a thief, your size varies between small
+          and medium (your choice).
+          <span class="raceSpecificFeatures">(Medium)</span>
+        </p>
+      </div>
+      <div class="speed">
+        <h3>Speed</h3>
+        <p>
+          Your experience in heists and running away from dire situations has
+          led your kind to be quick on its feet, resulting in a speed faster
+          than most creatures.
+          <br />
+          Your speed is 35 ft.
+        </p>
+      </div>
+      <div class="ability-score-increase">
+        <h3>Ability Score Increase</h3>
+        <p>
+          One ability score of your choice increases by 2.
+          <span class="raceSpecificFeatures">(Dexterity)</span>
+        </p>
+      </div>
+      <div class="feat">
+        <h3>Feat</h3>
+        <p>
+          You gain one feat of your choice for which you qualify.
+          <span class="raceSpecificFeatures">(Mobile)</span>
+        </p>
+      </div>
+      <div class="variable-trait">
+        <h3>Variable Trait</h3>
+        <p>
+          You gain one of the following options of your choice:
+          <br />
+          <span class="raceSpecificFeatures"
+            >-Proficiency in one skill of your choice (Perception).</span
+          >
+          <br />
+          -Darkvision with a range of 60 feet.
+        </p>
+      </div>
+      <div class="languages">
+        <h3>Language</h3>
+        <p>
+          You can speak, read, and write Common and one other language that you
+          and your DM agree is appropriate for your character
+          <span class="raceSpecificFeatures">(Elven).</span>
+        </p>
+      </div>
+    </div>
+  </body>
 </html>
