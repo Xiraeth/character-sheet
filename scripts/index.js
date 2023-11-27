@@ -1,25 +1,34 @@
 "use strict";
+// localStorage.clear();
 
 const stats = document.querySelector(".stats");
 const barsIcon = document.querySelector(".menuIcon i");
 const xmarkIcon = document.querySelector(".leftNavbar i");
 const menu = document.querySelector(".leftNavbar");
 
-let currentHP = document.querySelector("#HP div span"); /*
-let = document.querySelector("");
-let = document.querySelector("");
-let = document.querySelector("");
-let = document.querySelector("");
-let = document.querySelector("");*/
+const currentHP = document.querySelector("#currentHPdiv span");
+const maxHP = document.querySelector("#maximumHPdiv span");
+const tempHP = document.querySelector("#tempHPdiv span");
+
+window.addEventListener("load", loadPage);
 
 stats.addEventListener("input", (e) => {
   getModifier(e.target);
 });
+
 barsIcon.addEventListener("click", showMenu);
 xmarkIcon.addEventListener("click", hideMenu);
+
 currentHP.addEventListener("input", () => {
-  localStorage.setItem("HP", currentHP.textContent);
-  console.log(localStorage.getItem("HP"));
+  localStorage.setItem("currentHP", currentHP.textContent);
+});
+
+maxHP.addEventListener("input", () => {
+  localStorage.setItem("maxHP", maxHP.textContent);
+});
+
+tempHP.addEventListener("input", () => {
+  localStorage.setItem("tempHP", tempHP.textContent);
 });
 
 function getModifier(abilityScoreElement) {
@@ -50,5 +59,7 @@ function hideMenu() {
 }
 
 function loadPage() {
-  hipoints = localStorage.hitpoints;
+  currentHP.textContent = localStorage.currentHP;
+  maxHP.textContent = localStorage.maxHP;
+  tempHP.textContent = localStorage.tempHP;
 }
