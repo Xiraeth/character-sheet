@@ -4,15 +4,15 @@
 
 	<head>
 		<meta charset='UTF-8'>
-		<meta name="viewport" content="widtd=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Mobile phone character sheet">
     <meta name="keywords" content="dnd, characterSheet, tabletop, rpg, game">
     <meta name="autdor" content="Xiraetd">
-		<title>Rogue Info</title>
+		<title>Rogue info</title>
 		<link rel="stylesheet" href="styles/style.css">
 		<link rel="icon" type="image/x-icon" href="images/dnd.webp">
 		<script src="https://kit.fontawesome.com/00de2a7224.js" crossorigin="anonymous"></script>
-		<script src="scripts/index.js" defer></script>
+		<script src="scripts/rogue.js" defer></script>
 	</head>
 
 	<body>
@@ -23,8 +23,8 @@
 		<div class="leftNavbar">
 			<i class="fa-solid fa-xmark"></i>
 			<div><a href="index.html">Arkady</a></div>
-			<div><a href="#">Eladrin</a></div>
-			<div><a href="rogue.html">Rogue</a></div>
+			<div><a href="race.html">Race</a></div>
+			<div><a href="rogue.html">Class</a></div>
 		</div>
 		
 		<div id="character-name">Rogue</div>
@@ -193,7 +193,7 @@
 			
 			<div>
 				<h3>Tools:</h3>
-				<div>tdieves' Tools</div>
+				<div>Thieves' Tools</div>
 			</div>
 			
 			<div>
@@ -204,9 +204,9 @@
 			
 			<div>
 				<h3>Skills:</h3>
-					Choose four from Acrobatics, Atdletics, Deception, 
+					Choose four from Acrobatics, Athletics, Deception, 
 					Insight, Intimidation, Investigation, Perception, 
-					Performance, Persuasion, Sleight of Hand, and Stealtd
+					Performance, Persuasion, Sleight of Hand, and Stealth
 			</div>
 		</div>
 		
@@ -214,10 +214,10 @@
 				<h2>Expertise</h2>
 				At 1st level, choose two of your skill proficiencies, 
 				or one of your skill proficiencies and your proficiency 
-				witd tdieves' tools. Your + is doubled for 
-				any ability check you make tdat uses eitder of tde chosen proficiencies.
+				witd thieves' tools. Your proficiency bonus is doubled for 
+				any ability check you make that uses either of the chosen proficiencies.
 				</br></br>
-				At 6td level, you can choose two more of your proficiencies 
+				At 6th level, you can choose two more of your proficiencies 
 				(in skills or witd tdieves' tools) to gain tdis benefit.
 			</div>
 			
@@ -225,13 +225,111 @@
 				<h2>Sneak Attack</h2>
 				Beginning at 1st level, you know how to strike subtly and exploit 
 				a foe's distraction. Once per turn, you can deal an extra 1d6 damage
-				to one creature you hit witd an attack if you have advantage on tde 
-				attack roll. tde attack must use a finesse or a ranged weapon.</br></br>
-				You don't need advantage on tde attack roll if anotder enemy of tde 
-				target is witdin 5 feet of it, tdat enemy isn't incapacitated, and you 
-				don't have disadvantage on tde attack roll.</br></br>
-				tde amount of tde extra damage increases as you gain levels in tdis 
-				class, as shown in tde d6 column of tde Rogue table.
+				to one creature you hit with an attack if you have advantage on the 
+				attack roll. The attack must use a finesse or a ranged weapon.</br></br>
+				You don't need advantage on the attack roll if another enemy of the 
+				target is within 5 feet of it, that enemy isn't incapacitated, and you 
+				don't have disadvantage on the attack roll.</br></br>
+				The amount of extra damage increases as you gain levels in this 
+				class, as shown in the d6 column of the Rogue table.
+			</div>
+			
+			<div class="thievesCant rogueFeatureSection">
+				<h2>Thieve's Cant</h2>
+				During your rogue training you learned thieves' cant, a secret mix of 
+				dialect, jargon, and code that allows you to hide messages in seemingly 
+				normal conversation. Only another creature that knows thieves' cant 
+				understands such messages. It takes four times longer to convey such a 
+				message than it does to speak the same idea plainly.
+				<br/><br/>
+				In addition, you understand a set of secret signs and symbols used to 
+				convey short, simple messages, such as whether an area is dangerous or 
+				the territory of a thieves' guild, whether loot is nearby, or whether the 
+				people in an area are easy marks or will provide a safe house for 
+				thieves on the run.
+			</div>
+			
+			<div class="cunningAction rogueFeatureSection">
+				<h2>Cunning Action</h2>
+				Starting at 2nd level, your quick thinking and agility allow you to 
+				move and act quickly. You can take a bonus action on each of your turns 
+				in combat. This action can be used only to take the Dash, Disengage, 
+				or Hide action.
+			</div>
+			
+			<div class="roguishArchetype rogueFeatureSection">
+				<h2>Roguish Archetype</h2>
+				At 3rd level, you choose an archetype that you emulate in the exercise 
+				of your rogue abilities. Your archetype choice grants you features at 
+				3rd level and then again at 9th, 13th, and 17th level.
+			</div>
+			
+			<div class="steadyAim rogueFeatureSection">
+				<h2>Steady Aim</h2>
+				At 3rd level, as a bonus action, you give yourself advantage on your next 
+				attack roll on the current turn. You can use this bonus action only if you 
+				haven't moved during this turn, and after you use the bonus action, your 
+				speed is 0 until the end of the current turn.
+			</div>
+			
+			<div class="ab-scoreImprov rogueFeatureSection">
+				<h2>Ability Score Improvement</h2>
+				When you reach 4th level, and again at 8th, 10th, 12th, 16th, and 19th 
+				level, you can increase one ability score of your choice by 2, or you 
+				can increase two ability scores of your choice by 1. As normal, you can't 
+				increase an ability score above 20 using this feature.
+			</div>
+			
+			<div class="uncannyDodge rogueFeatureSection">
+				<h2>Uncanny Dodge</h2>
+				Starting at 5th level, when an attacker that you can see hits you with 
+				an attack, you can use your reaction to 
+				halve the attack's damage against you.
+			</div>
+			
+			<div class="evasion rogueFeatureSection">
+				<h2>Evasion</h2>
+				Beginning at 7th level, you can nimbly dodge out of the way of 
+				certain area effects, such as a red dragon's fiery breath or an Ice 
+				Storm spell. When you are subjected to an effect that allows you to 
+				make a Dexterity saving throw to take only half damage, you instead 
+				take no damage if you succeed on the saving throw, and only half 
+				damage if you fail.
+			</div>
+			
+			<div class="reliableTalent rogueFeatureSection">
+				<h2>Reliable Talent</h2>
+				By 11th level, you have refined your chosen skills until they 
+				approach perfection. Whenever you make an ability check that lets 
+				you add your proficiency bonus, you can treat a d20 roll of 9 or 
+				lower as a 10.
+			</div>
+			
+			<div class="blindSense rogueFeatureSection">
+				<h2>Blindsense</h2>
+				Starting at 14th level, if you are able to hear, you are aware of the 
+				location of any hidden or invisible creature within 10 feet of you.
+			</div>
+			
+			<div class="slipperyMind rogueFeatureSection">
+				<h2>Slippery Mind</h2>
+				By 15th level, you have acquired greater mental strength. 
+				You gain proficiency in Wisdom saving throws.
+			</div>
+			
+			<div class="elusive rogueFeatureSection">
+				<h2>Elusive</h2>
+				By 15th level, you have acquired greater mental strength. You gain 
+				proficiency in Wisdom saving throws.
+			</div>
+			<div class="strokeOfLuck rogueFeatureSection">
+				<h2>Stroke of Luck</h2>
+				At 20th level, you have an uncanny knack for succeeding when you need to. 
+				If your attack misses a target within range, you can turn the miss into a 
+				hit. Alternatively, if you fail an ability check, you can treat the d20 
+				roll as a 20.
+				<br/></br>
+				Once you use this feature, you can't use it again until you finish a short or long rest.
 			</div>
 		
 	</body>

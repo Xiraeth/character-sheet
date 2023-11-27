@@ -13,8 +13,18 @@
 		<link rel="icon" type="image/x-icon" href="images/dnd.webp">
 		<script src="https://kit.fontawesome.com/00de2a7224.js" crossorigin="anonymous"></script>
 		<script src="scripts/index.js" defer></script>
-		<script src="scripts/arkady.js" defer></script>
 	</head>
+	
+	<!--
+		Saving throws: Dexterity, Intelligence
+		Skill Proficiencies: 
+			Background: Deception, Stealth
+			Class: Sleight of Hand, Acrobatics, Investigation, Perception
+			Race: Insight
+		Expertise: 
+			Stealth, Sleight of Hand
+		Feat: Fey Touched
+	-->
 
 	<body>
 		<div class="menuIcon">
@@ -24,34 +34,38 @@
 		<div class="leftNavbar">
 			<i class="fa-solid fa-xmark"></i>
 			<div><a href="index.html">Arkady</a></div>
-			<div><a href="#">Eladrin</a></div>
-			<div><a href="rogue.html">Rogue</a></div>
+			<div><a href="race.html">Race</a></div>
+			<div><a href="rogue.html">Class</a></div>
 		</div>
 		
 		<div id="character-name">Arkady</div>
 		<div id="character-details">
-			<div id="race">Eladrin</div>
+			<div id="race">Vastayan</div>
 			<div id="class">Rogue</div>
-			<div id="background">Criminal</div>
-			<div id="level">Lv. <span contenteditable="true" id="rogueLevel">3</span></div>
-			<div id="alignment">Chaotic Neutral</div>			
+			<div id="background">Charlatan</div>
+			<div id="level">Lv. <span contenteditable="true" id="rogueLevel">10</span></div>
+			<div id="alignment">Chaotic Good</div>			
 		</div>
 		
 		<div id="HP">
-			<div>Hitpoints: <span contenteditable="true">18</span></div>
+			<div id="maximumHPdiv">
+				Maximum HP <span id="maxHP" contenteditable="true">57</span> 
+			</div>
+			<div id="currentHPdiv">Current HP<span contenteditable="true">57</span></div>
+			<div id="tempHPdiv">Temporary HP<span contenteditable="true">0</span></div>
 		</div>
 		
 		<div class="armorClassSpeedInit">
 			<div id="armorClass">
-				<div contenteditable="true">14</div>
+				<div contenteditable="true">17</div>
 				<div>Armor Class</div>
 			</div>
 			<div id="initiative">
-				<div contenteditable="true">3</div>
+				<div contenteditable="true">5</div>
 				<div>Initiative</div>
 			</div>
 			<div id="speed">
-				<div contenteditable="true">30</div>
+				<div contenteditable="true">45</div>
 				<div>Speed</div>
 			</div>
 		</div>
@@ -67,8 +81,8 @@
       <div>
         <b>DEX</b>
         <div>
-          <span class="abilityScore" contenteditable="true">17</span>
-          <span class="modifier">(+3)</span>
+          <span class="abilityScore" contenteditable="true">20</span>
+          <span class="modifier">(+5)</span>
         </div>
       </div>
       <div>
@@ -81,15 +95,15 @@
       <div>
         <b>INT</b>
         <div>
-          <span class="abilityScore" contenteditable="true">15</span>
-          <span class="modifier">(+2)</span>
+          <span class="abilityScore" contenteditable="true">16</span>
+          <span class="modifier">(+3)</span>
         </div>
       </div>
       <div>
         <b>WIS</b>
         <div>
-          <span class="abilityScore" contenteditable="true">12</span>
-          <span class="modifier">(+1)</span>
+          <span class="abilityScore" contenteditable="true">14</span>
+          <span class="modifier">(+2)</span>
         </div>
       </div>
       <div>
@@ -100,62 +114,6 @@
         </div>
       </div>
     </div>
-		
-		<!--
-		
-		<div class="hitPoints">
-			<h2>Hit points</h2>
-			<div>
-				<h3>Hit Dice:</h3>
-				<div>1d8 per rogue level</div>
-			</div>
-			<div>
-				<h3>Hit Points at 1st level:</h3>
-				<div>8 + CON modifier</div>
-			</div>
-			<div>
-				<h3>Hit Points at Higher Levels:</h3>
-				<div>1d8 (or 5) + your Constitution modifier per rogue level after 1st</div>
-			</div>
-		</div>
-		
-		<div class="proficiencies">
-			<h2>Proficiencies</h2>
-			<div>
-				<h3>Armor:</h3>
-				<div>Light Armor</div>
-			</div>
-			
-			<div>
-				<h3>Weapons:</h3>
-				<div>Simple weapons,</div>
-				<div>Hand crossbows,</div>
-				<div>Longswords,</div>
-				<div>Rapiers,</div>
-				<div>Shortswords</div>
-			</div>
-			
-			<div>
-				<h3>Tools:</h3>
-				<div>Thieves' Tools</div>
-			</div>
-			
-			<div>
-				<h3>Saving Throws:</h3>
-				<div>Dexterity,</div>
-				<div>Intelligence</div>
-			</div>
-			
-			<div>
-				<h3>Skills:</h3>
-				<div>Sleight of Hand</div>
-				<div>Insight</div>
-				<div>Investigation</div>
-				<div>Perception</div>
-			</div>
-		</div>
-		
-		-->
 		
 	</body>
 

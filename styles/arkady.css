@@ -38,33 +38,83 @@
 	padding: 20px;
 	background: rgba(40, 42, 52, 0.5);
 	margin: auto;
-	height: 75px;
+	height: 140px;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	gap: 10px;
 }
 
-#HP > div {
-	font-family: chance;
-	width: 100%;
-	font-size: 2rem;
-	color: var(--secondary-text-color);
+#maximumHPdiv {
+	font-size: 1rem;
+	width: 80%;
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
+	color: #FF6347bb;
+	font-style: italic;
 }
 
-#HP span {
+#maximumHPdiv span {
 	font-family: sans-serif;
-	font-size: 1.5rem;
-	color: var(--main-text-color);
 	width: 50px;
-	text-align: center;
+	text-align: right;
 	outline: none;
 	padding: 5px;
 }
 
-#HP span:focus {
+#currentHPdiv {
+	font-family: chance;
+	width: 80%;
+	font-size: 1.5rem;
+	color: var(--secondary-text-color);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#tempHPdiv {
+	font-family: mord;
+	font-size: 1.2rem;
+	font-style: italic;
+	width: 80%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	opacity: 0.7;
+}
+
+#tempHPdiv span {
+	font-family: sans-serif;
+	color: var(--main-text-color);
+	width: 50px;
+	text-align: right;
+	outline: none;
+	padding: 5px;
+}
+
+#currentHPdiv span {
+	font-family: sans-serif;
+	font-size: 1.5rem;
+	color: var(--main-text-color);
+	width: 50px;
+	text-align: right;
+	outline: none;
+	padding: 5px;
+}
+
+#maximumHPdiv span:focus {
+	border: 1px solid var(--main-text-color);
+	border-radius: 5px;
+}
+
+#tempHPdiv span:focus {
+	border: 1px solid var(--main-text-color);
+	border-radius: 5px;
+}
+
+#currentHPdiv span:focus {
 	border: 1px solid var(--main-text-color);
 	border-radius: 5px;
 }

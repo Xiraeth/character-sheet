@@ -1,5 +1,6 @@
 @import url(arkady.css);
 @import url(rogue.css);
+@import url(race.css);
 
 @font-face{
 	font-family: mord;
@@ -21,7 +22,7 @@
 	--bg-color: rgba(0,0,0, 0.75);
 	--bg-color-secondary: rgba(255, 255, 255, 0.1);
 	--main-text-color: lavender;
-	--secondary-text-color: violet;
+	--secondary-text-color: #dd60dd;
 }
 
 body {
