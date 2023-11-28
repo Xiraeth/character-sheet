@@ -37,9 +37,9 @@
   width: 100%;
   padding: 20px;
   background: rgba(40, 42, 52, 0.5);
-  margin: auto;
   height: 140px;
   display: flex;
+	border-bottom: 1px solid var(--main-text-color);
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -109,14 +109,63 @@
   border-radius: 5px;
 }
 
+#currentHPdiv span:focus {
+  border: 1px solid var(--main-text-color);
+  border-radius: 5px;
+}
+
 #tempHPdiv span:focus {
   border: 1px solid var(--main-text-color);
   border-radius: 5px;
 }
 
-#currentHPdiv span:focus {
-  border: 1px solid var(--main-text-color);
-  border-radius: 5px;
+#takeDamage {
+	width: 100%;
+  padding: 10px;
+  background: #ff000055;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+#takeDamage p {
+	width: 100px;
+	text-align: center;
+	font-family: chance;
+	font-size: 1.5rem;
+	color: 	#101010;
+	font-weight: bold;
+}
+
+#takeDamage input[type="number"] {
+	width: 70px;
+	height: 50px;
+	text-align: center;
+	font-size: 1.2rem;
+	outline: none;
+	border: 2px solid #000000aa;
+	padding: 10px;
+	background: transparent;
+	color: var(--main-text-color);
+	border-radius: 5px;
+}
+
+#takeDamage button{
+	height: 50px;
+	padding: 10px;
+	font-size: 1.5rem;
+	font-family: lohen;
+	border: 2px solid black;
+	border-radius: 5px;
+	background: transparent;
+	transition: all .2s;
+}
+
+#takeDamage button:active {
+	color: #ff000099;
+	background: black;
 }
 
 .armorClassSpeedInit {
