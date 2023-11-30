@@ -82,6 +82,7 @@
   text-align: right;
   outline: none;
   padding: 5px;
+	transition: color 0.5s;
 }
 
 #tempHPdiv {
@@ -252,4 +253,45 @@
 .stats > div > div {
   display: flex;
   justify-content: center;
+}
+
+#skillsContainer h1{
+	margin: 10px 0;
+	font-size: 0.9rem;
+	font-style: italic;
+	text-align: center;
+	opacity: 0.75;
+}
+
+#skills {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	text-align: center;
+}
+
+#skills > div {
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	border-bottom: 1px solid white;
+}
+
+#skills > div:nth-child(2n) {
+	border-left: 1px solid white;
+}
+
+
+#skills > div:nth-child(n + 17){
+	border-bottom: none;
+}
+
+#skills > div > p {
+	color: violet;
+	font-weight: bold;
+	font-size: 1.1rem;
+	font-family: mord;
+}
+
+#skills > div > span	{
+	font-family: serif;
 }
