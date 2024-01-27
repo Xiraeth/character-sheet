@@ -17,17 +17,6 @@
     <script src="scripts/spells.js" defer></script>
   </head>
 
-  <!--
-		Saving throws: Dexterity, Intelligence
-		Skill Proficiencies: 
-			Background: Deception, Sleight of Hand
-			Class: Stealth, Acrobatics, Investigation, Perception
-			Race: Insight
-		Expertise: 
-			Stealth, Sleight of Hand, Insight, Perception
-		Feats: Mobile, Alert
-	-->
-
   <body>
     <div class="menuIcon">
       <i class="fa-solid fa-bars"></i>
@@ -44,13 +33,75 @@
     <div id="character-name">Spells</div>
 
     <div class="spellcastingInfo">
-      <div>
-        Spellcasting Class:
-        <span>Paladin</span>
-      </div>
       <div>Spellcasting ability: <span>CHA</span></div>
-      <div>Spell Save DC: <span>14</span></div>
-      <div>Spell attack bonus: <span>+6</span></div>
+      <div class="separator"></div>
+      <div id="spellSaveDC">
+        Spell Save DC: <span contenteditable="true">14</span>
+      </div>
+      <div class="separator"></div>
+      <div id="spellAtkBns">
+        Spell attack bonus: <span contenteditable="true">+6</span>
+      </div>
     </div>
+
+    <section class="firstLevelSpells spellsSection">
+      <h1>
+        <span style="font-family: Arial, Helvetica, sans-serif">1</span
+        ><sup>st</sup> Level Spell Slots
+      </h1>
+      <div class="spellSlots">
+        <div class="ss">Spell slots: <span contenteditable="true">4</span></div>
+        <div class="expanded">
+          Expended: <span contenteditable="true">0</span>
+        </div>
+      </div>
+      <table>
+        <tr>
+          <th>Cure Wounds</th>
+        </tr>
+        <tr>
+          <th>Shield of Faith</th>
+        </tr>
+        <tr>
+          <th>Detect Evil and Good</th>
+        </tr>
+        <tr>
+          <th>Bane</th>
+        </tr>
+        <tr>
+          <th>Hunter's Mark</th>
+        </tr>
+      </table>
+    </section>
+
+    <section class="secondLevelSpells spellsSection">
+      <h1>
+        <span style="font-family: Arial, Helvetica, sans-serif">2</span
+        ><sup>nd</sup> Level Spell Slots
+      </h1>
+      <div class="spellSlots">
+        <div class="ss">Spell slots: <span contenteditable="true">2</span></div>
+        <div class="expanded">
+          Expended: <span contenteditable="true">0</span>
+        </div>
+      </div>
+      <table>
+        <tr>
+          <th>Prayer of Healing</th>
+        </tr>
+        <tr>
+          <th>Warding Bond</th>
+        </tr>
+        <tr>
+          <th>Branding Smite</th>
+        </tr>
+        <tr>
+          <th>Hold Person</th>
+        </tr>
+        <tr>
+          <th>Misty Step</th>
+        </tr>
+      </table>
+    </section>
   </body>
 </html>
