@@ -294,3 +294,7 @@
 #skills > div > span {
   font-family: serif;
 }
+
+#skills > div > .profColor {
+  color: rgb(70, 238, 19);
+}

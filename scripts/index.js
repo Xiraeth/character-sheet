@@ -12,6 +12,7 @@ const menu = document.querySelector(".leftNavbar");
 const takeDamageBtn = document.querySelector("#takeDamage > button");
 const takeDamageInput = document.querySelector("#takeDamage > input");
 const profBonusSpan = document.querySelector("#skillsContainer > h1 > span");
+const charLevel = document.querySelector("#character-details > #level > span");
 
 const currentHPel = document.querySelector("#currentHPdiv span");
 const maxHPel = document.querySelector("#maximumHPdiv span");
@@ -32,19 +33,28 @@ window.addEventListener("load", (e) => {
   calculateSkillModifiers();
 });
 
-window.addEventListener("input", (e) => {
-  const target = e.target;
+// window.addEventListener("input", (e) => {
+//   const target = e.target;
 
-  let content = target.textContent;
-  let numericContent = content.replace(/\D/g, "");
-  target.textContent = numericContent;
+//   let content = target.textContent;
+//   let numericContent = content.replace(/\D/g, "");
+//   target.textContent = numericContent;
+// });
+
+charLevel.addEventListener("input", () => {
+  localStorage.setItem("charLevel", charLevel.textContent);
 });
 
-initiativeEl.addEventListener("focus", (e) => {
-  initiativeEl.textContent = initiativeEl.textContent.slice(1);
+armorClassEl.addEventListener("input", () => {
+  localStorage.armorClass = armorClassEl.textContent;
 });
-initiativeEl.addEventListener("blur", (e) => {
-  initiativeEl.textContent = "+" + initiativeEl.textContent;
+
+initiativeEl.addEventListener("input", () => {
+  localStorage.initiative = initiativeEl.textContent;
+});
+
+speedEl.addEventListener("input", () => {
+  localStorage.speed = speedEl.textContent;
 });
 
 stats.addEventListener("input", (e) => {
@@ -107,18 +117,6 @@ function flashColor(el, color) {
   }, 250);
 }
 
-function loadPage() {
-  currentHPel.textContent = localStorage.currentHP;
-  maxHPel.textContent = localStorage.maxHP;
-  tempHPel.textContent = localStorage.tempHP;
-  allAbilityElements.forEach((el) => {
-    const ability = el.querySelector("b").textContent;
-    const spanEl = el.querySelector(".abilityScore");
-    spanEl.textContent = localStorage.getItem(ability);
-  });
-  profBonusSpan.textContent = localStorage.profBonus;
-}
-
 function takeDamage() {
   if (takeDamageInput.value == "") return;
   const damage = Number(takeDamageInput.value);
@@ -136,13 +134,6 @@ function takeDamage() {
   }
 
   localStorage.currentHP = currentHPel.textContent;
-}
-
-function switchAbility(data) {
-  switch (data) {
-    case "str":
-      return;
-  }
 }
 
 function calculateSkillModifiers() {
@@ -166,4 +157,20 @@ function calculateSkillModifiers() {
       skillModifierEl.textContent = abilityModifier;
     }
   });
+}
+
+function loadPage() {
+  speedEl.textContent = localStorage.speed;
+  initiativeEl.textContent = localStorage.initiative;
+  armorClassEl.textContent = localStorage.armorClass;
+  charLevel.textContent = localStorage.charLevel;
+  currentHPel.textContent = localStorage.currentHP;
+  maxHPel.textContent = localStorage.maxHP;
+  tempHPel.textContent = localStorage.tempHP;
+  allAbilityElements.forEach((el) => {
+    const ability = el.querySelector("b").textContent;
+    const spanEl = el.querySelector(".abilityScore");
+    spanEl.textContent = localStorage.getItem(ability);
+  });
+  profBonusSpan.textContent = localStorage.profBonus;
 }
