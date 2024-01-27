@@ -1,0 +1,60 @@
+#paladinTable {
+  width: 80%;
+  margin: 20px auto 0;
+  position: relative;
+}
+
+/* #paladinTable,
+#paladinTable td,
+#paladinTable th{
+	border: 2px solid violet;
+	border-collapse: collapse;
+	padding: 15px;
+	text-align: center;
+}
+
+#firstRow {
+	color: violet;
+	background-color: rgba(0,0,0, 0.3);
+}
+
+.fa-circle-chevron-down,
+.fa-circle-chevron-up {
+	font-size: 1.2rem;
+	position: absolute;
+	top: 280px;
+	right: 8px;
+	color: violet;
+}
+
+.fa-circle-chevron-down:active {
+	opacity: 0.6;
+} */
+
+.paladinFeatureSection {
+  padding: 10px;
+  margin-top: 10px;
+  font-family: mord, serif;
+}
+
+.paladinFeatureSection h2 {
+  font-size: 2.3rem;
+  text-decoration: underline;
+  color: var(--secondary-text-color);
+  text-align: center;
+}
+
+.paladinFeatureSection > div > div {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.paladinFeatureSection h3 {
+  color: var(--secondary-text-color);
+  display: inline-block;
+  text-decoration: underline;
+}
+
+.ab-scoreImprov h2 {
+  font-size: 25px;
+}

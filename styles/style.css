@@ -1,114 +1,114 @@
-@import url(arkady.css);
-@import url(rogue.css);
+@import url(malady.css);
+@import url(paladin.css);
 @import url(race.css);
 
-@font-face{
-	font-family: mord;
-	src: url("../fonts/Mordred.ttf");
+@font-face {
+  font-family: mord;
+  src: url("../fonts/Mordred.ttf");
 }
 
-@font-face{
-	font-family: lohen;
-	src: url("../fonts/Lohengrin.ttf");
+@font-face {
+  font-family: lohen;
+  src: url("../fonts/Lohengrin.ttf");
 }
 
-@font-face{
-	font-family: chance;
-	src: url("../fonts/BLKCHCRY.ttf");
+@font-face {
+  font-family: chance;
+  src: url("../fonts/BLKCHCRY.ttf");
 }
 
 :root {
-	font-size: 16px;
-	--bg-color: rgba(0,0,0, 0.75);
-	--bg-color-secondary: rgba(255, 255, 255, 0.1);
-	--main-text-color: lavender;
-	--secondary-text-color: #dd60dd;
+  font-size: 16px;
+  --bg-color: rgba(0, 0, 0, 0.75);
+  --bg-color-secondary: rgba(255, 255, 255, 0.1);
+  --main-text-color: lavender;
+  --secondary-text-color: #dd60dd;
 }
 
 body {
-	min-height: 100vh;
-	color: var(--main-text-color);
-	background-color: var(--bg-color);
-	font-family: mord;
+  min-height: 100vh;
+  color: var(--main-text-color);
+  background-color: var(--bg-color);
+  font-family: mord;
 }
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 #character-name {
-	font-family: lohen, serif;
-	font-size: 3rem;
-	text-align: center;
-	color: tomato;
-	width: 80%;
-	margin: 0 auto;
-	padding-bottom: 10px;
-	border-bottom: 1px solid var(--main-text-color);
+  font-family: lohen, serif;
+  font-size: 3rem;
+  text-align: center;
+  color: tomato;
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--main-text-color);
 }
 
 .menuIcon i {
-	font-size: 1.5rem;
-	color: var(--main-text-color);
-	position: absolute;
-	top: 20px;
-	left: 20px;
-	transition: all .2s;
+  font-size: 1.5rem;
+  color: var(--main-text-color);
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  transition: all 0.2s;
 }
 
 .leftNavbar {
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	top: 0;
-	z-index: 1;
-	width: 100px;
-	transform: translateX(-100px);
-	background: rgba(0,0,0,0.5);
-	transition: transform .3s;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 1;
+  width: 100px;
+  transform: translateX(-100px);
+  background: rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s;
 }
 
 .leftNavbar > div {
-	font-size: 1.2rem;
-	height: 75px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  font-size: 1.2rem;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .leftNavbar i {
-	font-size: 2rem;
-	color: var(--main-text-color);
-	transition: all .2s;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 75px;
+  font-size: 2rem;
+  color: var(--main-text-color);
+  transition: all 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
 }
 
 .leftNavbar > div,
 .leftNavbar i {
-	border-bottom: 1px solid white;
+  border-bottom: 1px solid white;
 }
 
 .leftNavbar > div:active,
 .leftNavbar i:active {
-	background: rgba(255, 255, 255, 0.75);
-	color: black;
+  background: rgba(255, 255, 255, 0.75);
+  color: black;
 }
 
 .menuIcon i:active,
 .leftNavbar i:active {
-	opacity: 0.75;
+  opacity: 0.75;
 }
 
-.leftNavbar a{
-	color: var(--main-text-color);
-	text-decoration: none;
+.leftNavbar a {
+  color: var(--main-text-color);
+  text-decoration: none;
 }
 
 .hidden {
-	display: none;
+  display: none;
 }
