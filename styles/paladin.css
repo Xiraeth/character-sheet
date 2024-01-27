@@ -6,29 +6,29 @@
 
 /* #paladinTable,
 #paladinTable td,
-#paladinTable th{
-	border: 2px solid violet;
-	border-collapse: collapse;
-	padding: 15px;
-	text-align: center;
+#paladinTable th {
+  border: 2px solid violet;
+  border-collapse: collapse;
+  padding: 15px;
+  text-align: center;
 }
 
 #firstRow {
-	color: violet;
-	background-color: rgba(0,0,0, 0.3);
+  color: violet;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .fa-circle-chevron-down,
 .fa-circle-chevron-up {
-	font-size: 1.2rem;
-	position: absolute;
-	top: 280px;
-	right: 8px;
-	color: violet;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 280px;
+  right: 8px;
+  color: violet;
 }
 
 .fa-circle-chevron-down:active {
-	opacity: 0.6;
+  opacity: 0.6;
 } */
 
 .paladinFeatureSection {

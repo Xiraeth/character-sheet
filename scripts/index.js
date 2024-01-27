@@ -21,42 +21,41 @@ const initiativeEl = document.querySelector("#initiative div:first-child");
 const speedEl = document.querySelector("#speed div:first-child");
 const skillsDiv = document.querySelector("#skills");
 
-const proficiencies = ["Acrobatics", "Investigation"];
-const expertise = ["Sleight of Hand", "Stealth", "Insight", "Perception"];
+const proficiencies = ["History", "Persuasion", "Insight", "Religion"];
 
-window.addEventListener("load", e => {
-	loadPage();
-	allAbilityElements.forEach(el => {
-		const abilityScoreElement = el.querySelector(".abilityScore");
-		getModifier(abilityScoreElement);
-	})
-	calculateSkillModifiers();
+window.addEventListener("load", (e) => {
+  loadPage();
+  allAbilityElements.forEach((el) => {
+    const abilityScoreElement = el.querySelector(".abilityScore");
+    getModifier(abilityScoreElement);
+  });
+  calculateSkillModifiers();
 });
 
-window.addEventListener("input", e => {
-	const target = e.target;
+window.addEventListener("input", (e) => {
+  const target = e.target;
 
-	let content = target.textContent;
-	let numericContent = content.replace(/\D/g, "");
+  let content = target.textContent;
+  let numericContent = content.replace(/\D/g, "");
   target.textContent = numericContent;
-})
+});
 
-initiativeEl.addEventListener("focus", e => {
-	initiativeEl.textContent = initiativeEl.textContent.slice(1);
-})
-initiativeEl.addEventListener("blur", e => {
-	initiativeEl.textContent = "+" + initiativeEl.textContent;
-})
+initiativeEl.addEventListener("focus", (e) => {
+  initiativeEl.textContent = initiativeEl.textContent.slice(1);
+});
+initiativeEl.addEventListener("blur", (e) => {
+  initiativeEl.textContent = "+" + initiativeEl.textContent;
+});
 
 stats.addEventListener("input", (e) => {
   getModifier(e.target);
-	const ability = e.target.parentElement.parentElement.querySelector("b");
-	localStorage.setItem(`${ability.textContent}`, e.target.textContent);
+  const ability = e.target.parentElement.parentElement.querySelector("b");
+  localStorage.setItem(`${ability.textContent}`, e.target.textContent);
 });
 
 profBonusSpan.addEventListener("input", () => {
-	localStorage.profBonus = profBonusSpan.textContent;
-})
+  localStorage.profBonus = profBonusSpan.textContent;
+});
 
 barsIcon.addEventListener("click", showMenu);
 xmarkIcon.addEventListener("click", hideMenu);
@@ -102,63 +101,69 @@ function hideMenu() {
 }
 
 function flashColor(el, color) {
-	el.style.color = color;
-	setTimeout(function() {
-		el.style.color = MAIN_TEXT_COLOR;
-	}, 250);
+  el.style.color = color;
+  setTimeout(function () {
+    el.style.color = MAIN_TEXT_COLOR;
+  }, 250);
 }
 
 function loadPage() {
   currentHPel.textContent = localStorage.currentHP;
   maxHPel.textContent = localStorage.maxHP;
   tempHPel.textContent = localStorage.tempHP;
-	allAbilityElements.forEach(el => {
-		const ability = el.querySelector("b").textContent;
-		const spanEl = el.querySelector(".abilityScore");
-		spanEl.textContent = localStorage.getItem(ability);
-	})
-	profBonusSpan.textContent = localStorage.profBonus;
+  allAbilityElements.forEach((el) => {
+    const ability = el.querySelector("b").textContent;
+    const spanEl = el.querySelector(".abilityScore");
+    spanEl.textContent = localStorage.getItem(ability);
+  });
+  profBonusSpan.textContent = localStorage.profBonus;
 }
 
 function takeDamage() {
-	if (takeDamageInput.value == "") return;
-	const damage = Number(takeDamageInput.value);
-	
-	currentHPel.textContent = Number(currentHPel.textContent) - damage;
-	
-	if (Number(currentHPel.textContent) > Number(localStorage.maxHP)) {
-		currentHPel.textContent = localStorage.maxHP
-	}
-	
-	if (damage < 0) {
-		flashColor(currentHPel, "springgreen");
-	} else if (damage > 0) {
-		flashColor(currentHPel, "crimson");
-	}
-	
-	localStorage.currentHP = currentHPel.textContent;
+  if (takeDamageInput.value == "") return;
+  const damage = Number(takeDamageInput.value);
+
+  currentHPel.textContent = Number(currentHPel.textContent) - damage;
+
+  if (Number(currentHPel.textContent) > Number(localStorage.maxHP)) {
+    currentHPel.textContent = localStorage.maxHP;
+  }
+
+  if (damage < 0) {
+    flashColor(currentHPel, "springgreen");
+  } else if (damage > 0) {
+    flashColor(currentHPel, "crimson");
+  }
+
+  localStorage.currentHP = currentHPel.textContent;
 }
 
 function switchAbility(data) {
-	switch(data) {
-		case "str":
-			return 
-	}
+  switch (data) {
+    case "str":
+      return;
+  }
 }
 
 function calculateSkillModifiers() {
-	const allSkills = document.querySelectorAll("#skills > div");
+  const allSkills = document.querySelectorAll("#skills > div");
 
-	allSkills.forEach(skill => {
-		const skillNameEl = skill.querySelector("p");
-		const skillModifierEl = skill.querySelector("span");
-		
-		const ability = skillNameEl.dataset.ability;
-		
-		if (proficiencies.includes(skillNameEl.textContent)) {
-			
-		} else if (expertise.includes(skillNameEl.textContent)) {
-			
-		}
-	})
+  allSkills.forEach((skill) => {
+    const skillNameEl = skill.querySelector("p");
+    const skillModifierEl = skill.querySelector("span");
+
+    const abilityName = skillNameEl.dataset.ability;
+
+    const statDiv = document.querySelector(`.stats > .${abilityName}`);
+    const abilityModifier = Number(
+      statDiv.querySelector(`div > .modifier`).textContent.slice(1, 3)
+    );
+
+    if (proficiencies.includes(skillNameEl.textContent)) {
+      skillModifierEl.textContent =
+        Number(profBonusSpan.textContent) + abilityModifier;
+    } else {
+      skillModifierEl.textContent = abilityModifier;
+    }
+  });
 }
