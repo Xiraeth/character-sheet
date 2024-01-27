@@ -9,13 +9,13 @@ const firstLvSpellSlots = document.querySelector(
   ".firstLevelSpells > .spellSlots > .ss > span"
 );
 const firstLvExpanded = document.querySelector(
-  ".firstLevelSpells > .spellSlots > .expanded > span"
+  ".firstLevelSpells > .spellSlots > .expended > span"
 );
 const secondLvSpellSlots = document.querySelector(
   ".secondLevelSpells > .spellSlots > .ss > span"
 );
 const secondLvExpanded = document.querySelector(
-  ".secondLevelSpells > .spellSlots > .expanded > span"
+  ".secondLevelSpells > .spellSlots > .expended > span"
 );
 
 window.addEventListener("load", function (e) {

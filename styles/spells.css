@@ -25,7 +25,7 @@
 
 .separator {
   height: 1px;
-  background-color: tomato;
+  background-color: var(--secondary-text-color);
   width: 90%;
   margin: auto;
 }
@@ -34,7 +34,7 @@
 .secondLevelSpells > h1 {
   font-size: 2rem;
   text-align: center;
-  color: tomato;
+  color: var(--secondary-text-color);
   text-decoration: underline;
   margin-bottom: 5px;
 }
@@ -43,6 +43,16 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-color: var(--bg-color-secondary);
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+  padding: 10px;
+}
+
+.spellSlots > .ss > p,
+.spellSlots > .expended > p {
+  font-size: 1.7rem;
+  display: inline-block;
 }
 
 .spellSlots > div {
@@ -60,19 +70,19 @@ table {
 
 table,
 tr,
-th {
+td {
   padding: 10px;
   border-collapse: collapse;
 }
 
 tr {
-  border-bottom: 1px solid tomato;
+  border-bottom: 1px solid var(--secondary-text-color);
 }
 
 tr:last-child {
   border-bottom: none;
 }
 
-th {
+td {
   font-size: 1.5rem;
 }
