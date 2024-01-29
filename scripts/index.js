@@ -36,7 +36,7 @@ window.addEventListener("load", (e) => {
   loadPage();
   allAbilityElements.forEach((el) => {
     const abilityScoreElement = el.querySelector(".abilityScore");
-    getModifier(abilityScoreElement);
+    getAbilityScoreModifier(abilityScoreElement);
   });
   calculateSkillModifiers();
 });
@@ -78,9 +78,10 @@ speedEl.addEventListener("input", () => {
 });
 
 stats.addEventListener("input", (e) => {
-  getModifier(e.target);
+  getAbilityScoreModifier(e.target);
   const ability = e.target.parentElement.parentElement.querySelector("b");
   localStorage.setItem(`${ability.textContent}`, e.target.textContent);
+  calculateSkillModifiers();
 });
 
 profBonusSpan.addEventListener("input", () => {
@@ -119,25 +120,6 @@ function checkForBorder(element) {
   }
 }
 
-function getModifier(abilityScoreElement) {
-  let modifierSpan =
-    abilityScoreElement.parentElement.querySelector(".modifier");
-
-  let content = abilityScoreElement.textContent;
-  let numericContent = content.replace(/\D/g, "");
-  abilityScoreElement.textContent = numericContent;
-
-  if (abilityScoreElement.textContent == "") {
-    modifierSpan.textContent = "(...)";
-    return;
-  }
-
-  let abilityScore = parseInt(numericContent);
-  let modifier = Math.floor((abilityScore - 10) / 2);
-
-  modifierSpan.textContent = `(${modifier >= 0 ? "+" : ""}${modifier})`;
-}
-
 function showMenu() {
   menu.style.transform = "translateX(0)";
 }
@@ -172,6 +154,25 @@ function takeDamage() {
   localStorage.currentHP = currentHPel.textContent;
 }
 
+function getAbilityScoreModifier(abilityScoreElement) {
+  let modifierSpan =
+    abilityScoreElement.parentElement.querySelector(".modifier");
+
+  let content = abilityScoreElement.textContent;
+  let numericContent = content.replace(/\D/g, "");
+  abilityScoreElement.textContent = numericContent;
+
+  if (abilityScoreElement.textContent == "") {
+    modifierSpan.textContent = "(-)";
+    return;
+  }
+
+  let abilityScore = parseInt(numericContent);
+  let modifier = Math.floor((abilityScore - 10) / 2);
+
+  modifierSpan.textContent = `(${modifier >= 0 ? "+" : ""}${modifier})`;
+}
+
 function calculateSkillModifiers() {
   const allSkills = document.querySelectorAll("#skills > div");
 
@@ -183,8 +184,13 @@ function calculateSkillModifiers() {
 
     const statDiv = document.querySelector(`.stats > .${abilityName}`);
     const abilityModifier = Number(
-      statDiv.querySelector(`div > .modifier`).textContent.slice(1, 3)
+      statDiv.querySelector(`div > .modifier`).textContent.slice(1, -1)
     );
+
+    if (isNaN(abilityModifier)) {
+      skillModifierEl.textContent = "-";
+      return;
+    }
 
     if (proficiencies.includes(skillNameEl.textContent)) {
       skillModifierEl.textContent =
