@@ -86,3 +86,36 @@ tr:last-child {
 td {
   font-size: 1.5rem;
 }
+
+table a {
+	/*color: white;
+	text-decoration: none;*/
+}
+
+ul {
+	width: 250px;
+	margin: 10px auto 20px;
+	/*text-align: center;*/
+	font-size: 1.4rem;
+	list-style-type: none;
+}
+
+ul a {
+	text-decoration: none;
+	color: white;
+}
+
+li:hover{
+	background: papayawhip;
+	color: black;
+}
+
+li:active {
+	background: moccasin;
+	color: black;
+}
+
+li {
+	border-bottom: 1px solid var( --secondary-text-color);
+	padding: 10px;
+}
