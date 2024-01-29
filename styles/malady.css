@@ -36,11 +36,7 @@
 #character-details #backgroundContainer {
   display: flex;
   flex-direction: column;
-}
-
-#character-details #backgroundContainer > p {
-  text-align: start;
-  padding-left: 20px;
+  justify-content: center;
 }
 
 #classLevel {

@@ -12,6 +12,7 @@ const menu = document.querySelector(".leftNavbar");
 const takeDamageBtn = document.querySelector("#takeDamage > button");
 const takeDamageInput = document.querySelector("#takeDamage > input");
 const profBonusSpan = document.querySelector("#skillsContainer > h1 > span");
+const menuCharName = document.querySelector("#menuCharName");
 
 const charDetails = document.querySelector("#character-details");
 const charDetailsSpanEls = charDetails.querySelectorAll("div > span");
@@ -41,14 +42,21 @@ window.addEventListener("load", (e) => {
   calculateSkillModifiers();
 });
 
+// Menu interaction
+barsIcon.addEventListener("click", showMenu);
+xmarkIcon.addEventListener("click", hideMenu);
+takeDamageBtn.addEventListener("click", takeDamage);
+
 charDetails.addEventListener("input", (e) => {
   const span = e.target.closest("span");
   generateBorder(span);
 });
 
-charName.addEventListener("input", () => {
+charName.addEventListener("input", (e) => {
   localStorage.setItem("charName", charName.textContent);
+  menuCharName.textContent = localStorage.charName;
 });
+
 charRace.addEventListener("input", () => {
   localStorage.setItem("charRace", charRace.textContent);
 });
@@ -87,10 +95,6 @@ stats.addEventListener("input", (e) => {
 profBonusSpan.addEventListener("input", () => {
   localStorage.profBonus = profBonusSpan.textContent;
 });
-
-barsIcon.addEventListener("click", showMenu);
-xmarkIcon.addEventListener("click", hideMenu);
-takeDamageBtn.addEventListener("click", takeDamage);
 
 currentHPel.addEventListener("input", () => {
   localStorage.setItem("currentHP", currentHPel.textContent);
@@ -143,6 +147,10 @@ function takeDamage() {
 
   if (Number(currentHPel.textContent) > Number(localStorage.maxHP)) {
     currentHPel.textContent = localStorage.maxHP;
+  } else if (
+    Number(currentHPel.textContent) < Number(-1 * localStorage.maxHP)
+  ) {
+    currentHPel.textContent = -localStorage.maxHP;
   }
 
   if (damage < 0) {
@@ -151,6 +159,7 @@ function takeDamage() {
     flashColor(currentHPel, "crimson");
   }
 
+  takeDamageInput.value = "";
   localStorage.currentHP = currentHPel.textContent;
 }
 
@@ -202,6 +211,7 @@ function calculateSkillModifiers() {
 }
 
 function loadPage() {
+  menuCharName.textContent = localStorage.charName;
   charName.textContent = localStorage.charName;
   charRace.textContent = localStorage.charRace;
   charClass.textContent = localStorage.charClass;
