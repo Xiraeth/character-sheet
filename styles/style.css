@@ -22,7 +22,7 @@
   font-size: 16px;
   --bg-color: rgba(0, 0, 0, 0.75);
   --bg-color-secondary: rgba(124, 110, 161, 0.5);
-  --main-text-color: lavender;
+  --main-text-color: rgb(230, 230, 250);
   --secondary-text-color: #dd60dd;
 }
 

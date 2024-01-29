@@ -87,35 +87,52 @@ td {
   font-size: 1.5rem;
 }
 
-table a {
-	/*color: white;
-	text-decoration: none;*/
-}
-
 ul {
-	width: 250px;
-	margin: 10px auto 20px;
-	/*text-align: center;*/
-	font-size: 1.4rem;
-	list-style-type: none;
+  width: 250px;
+  margin: 10px auto 20px;
+  font-size: 1.4rem;
+  list-style-type: none;
 }
 
 ul a {
-	text-decoration: none;
-	color: white;
+  text-decoration: none;
+  color: white;
 }
 
-li:hover{
-	background: papayawhip;
-	color: black;
+li:hover {
+  background: papayawhip;
+  color: black;
 }
 
 li:active {
-	background: moccasin;
-	color: black;
+  background: moccasin;
+  color: black;
 }
 
 li {
-	border-bottom: 1px solid var( --secondary-text-color);
-	padding: 10px;
+  border-bottom: 1px solid var(--secondary-text-color);
+  padding: 10px;
+}
+
+.addSpellContainer {
+  text-align: center;
+  position: absolute;
+  right: 20px;
+  top: 45%;
+}
+
+.spellList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.spellList li > i {
+  color: rgb(252, 2, 2);
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}
+
+.spellList li > i:hover {
+  color: black;
 }

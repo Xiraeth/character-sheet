@@ -11,7 +11,39 @@
   padding-bottom: 20px;
 }
 
-#paladinLevel {
+#character-details > div {
+  color: var(--main-text-color);
+  width: 45%;
+  font-size: 1.2rem;
+}
+
+#character-details > div:last-of-type {
+  width: 100%;
+}
+
+#character-details > div > p {
+  display: inline-block;
+  color: var(--secondary-text-color);
+}
+
+#character-details > div > span {
+  display: inline-block;
+  min-width: 70px;
+  /* border: 1px solid var(--main-text-color); */
+  border-radius: 3px;
+}
+
+#character-details #backgroundContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+#character-details #backgroundContainer > p {
+  text-align: start;
+  padding-left: 20px;
+}
+
+#classLevel {
   outline: none;
   font-family: serif;
   border: 1px solid rgba(0, 0, 0, 0);
@@ -19,18 +51,8 @@
   padding: 3px 10px;
 }
 
-#paladinLevel:focus {
+#classLevel:focus {
   border: 1px solid white;
-}
-
-#alignment {
-  flex-grow: 1;
-}
-
-#character-details > div {
-  color: var(--main-text-color);
-  width: 45%;
-  font-size: 1.2rem;
 }
 
 #HP {

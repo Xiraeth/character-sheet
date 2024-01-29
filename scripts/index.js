@@ -12,7 +12,15 @@ const menu = document.querySelector(".leftNavbar");
 const takeDamageBtn = document.querySelector("#takeDamage > button");
 const takeDamageInput = document.querySelector("#takeDamage > input");
 const profBonusSpan = document.querySelector("#skillsContainer > h1 > span");
+
+const charDetails = document.querySelector("#character-details");
+const charDetailsSpanEls = charDetails.querySelectorAll("div > span");
+const charName = document.querySelector("#character-name");
+const charRace = document.querySelector("#race");
+const charClass = document.querySelector("#class");
+const charBackground = document.querySelector("#background");
 const charLevel = document.querySelector("#character-details > #level > span");
+const charAlignment = document.querySelector("#alignment");
 
 const currentHPel = document.querySelector("#currentHPdiv span");
 const maxHPel = document.querySelector("#maximumHPdiv span");
@@ -33,16 +41,28 @@ window.addEventListener("load", (e) => {
   calculateSkillModifiers();
 });
 
-// window.addEventListener("input", (e) => {
-//   const target = e.target;
+charDetails.addEventListener("input", (e) => {
+  const span = e.target.closest("span");
+  generateBorder(span);
+});
 
-//   let content = target.textContent;
-//   let numericContent = content.replace(/\D/g, "");
-//   target.textContent = numericContent;
-// });
-
+charName.addEventListener("input", () => {
+  localStorage.setItem("charName", charName.textContent);
+});
+charRace.addEventListener("input", () => {
+  localStorage.setItem("charRace", charRace.textContent);
+});
+charClass.addEventListener("input", () => {
+  localStorage.setItem("charClass", charClass.textContent);
+});
+charBackground.addEventListener("input", () => {
+  localStorage.setItem("charBackground", charBackground.textContent);
+});
 charLevel.addEventListener("input", () => {
   localStorage.setItem("charLevel", charLevel.textContent);
+});
+charAlignment.addEventListener("input", () => {
+  localStorage.setItem("charAlignment", charAlignment.textContent);
 });
 
 armorClassEl.addEventListener("input", () => {
@@ -82,6 +102,22 @@ maxHPel.addEventListener("input", () => {
 tempHPel.addEventListener("input", () => {
   localStorage.setItem("tempHP", tempHPel.textContent);
 });
+
+function generateBorder(element) {
+  if (element.textContent === "") {
+    element.style.border = "1px solid rgba(230, 230, 250, 0.5)";
+  } else {
+    element.style.border = "none";
+  }
+}
+
+function checkForBorder(element) {
+  if (element.textContent === "") {
+    element.style.border = "1px solid rgba(230, 230, 250, 0.5)";
+  } else {
+    element.style.border = "none";
+  }
+}
 
 function getModifier(abilityScoreElement) {
   let modifierSpan =
@@ -160,10 +196,15 @@ function calculateSkillModifiers() {
 }
 
 function loadPage() {
+  charName.textContent = localStorage.charName;
+  charRace.textContent = localStorage.charRace;
+  charClass.textContent = localStorage.charClass;
+  charBackground.textContent = localStorage.charBackground;
+  charAlignment.textContent = localStorage.charAlignment;
+  charLevel.textContent = localStorage.charLevel;
   speedEl.textContent = localStorage.speed;
   initiativeEl.textContent = localStorage.initiative;
   armorClassEl.textContent = localStorage.armorClass;
-  charLevel.textContent = localStorage.charLevel;
   currentHPel.textContent = localStorage.currentHP;
   maxHPel.textContent = localStorage.maxHP;
   tempHPel.textContent = localStorage.tempHP;
@@ -173,4 +214,7 @@ function loadPage() {
     spanEl.textContent = localStorage.getItem(ability);
   });
   profBonusSpan.textContent = localStorage.profBonus;
+  charDetailsSpanEls.forEach((span) => {
+    checkForBorder(span);
+  });
 }

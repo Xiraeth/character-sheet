@@ -5,6 +5,7 @@ const xmarkIcon = document.querySelector(".leftNavbar i");
 const menu = document.querySelector(".leftNavbar");
 const spellSaveDC = document.querySelector("#spellSaveDC > span");
 const spellAtkBns = document.querySelector("#spellAtkBns > span");
+const allTrashCans = document.querySelectorAll(".fa-trash");
 const firstLvSpellSlots = document.querySelector(
   ".firstLevelSpells > .spellSlots > .ss > span"
 );
@@ -33,6 +34,14 @@ window.addEventListener("load", function (e) {
   secondLvExpanded.textContent = Number(
     localStorage.secondLvExpanded
   ).toLocaleString();
+});
+
+allTrashCans.forEach((trashCan) => {
+  trashCan.addEventListener("click", (e) => {
+    e.preventDefault();
+    const li = e.target.closest("li");
+    li.remove();
+  });
 });
 
 firstLvSpellSlots.addEventListener("input", () => {
