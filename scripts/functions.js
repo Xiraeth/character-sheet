@@ -60,7 +60,21 @@ export function flashColor(el, color) {
 
 export function takeDamage() {
   if (takeDamageInput.value == "") return;
-  const damage = Number(takeDamageInput.value);
+
+  let damage = Number(takeDamageInput.value);
+  let tempHP = localStorage.tempHP;
+
+  if (tempHP > 0) {
+    if (tempHP >= damage) {
+      tempHPel.textContent -= damage;
+      damage = 0; // Damage is absorbed by temporary hit points
+    } else {
+      damage -= tempHP;
+      tempHPel.textContent = 0; // Temporary hit points are fully used up
+    }
+
+    localStorage.tempHP = tempHPel.textContent;
+  }
 
   currentHPel.textContent = Number(currentHPel.textContent) - damage;
 
