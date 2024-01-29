@@ -1,9 +1,10 @@
-const stats = document.querySelector(".stats");
+"use strict";
+
+const MAIN_TEXT_COLOR = "rgb(230, 230, 250)";
+const SECONDARY_TEXT_COLOR = "#dd60dd";
+
 const allAbilityElements = document.querySelectorAll(".stats > div");
-const barsIcon = document.querySelector(".menuIcon i");
-const xmarkIcon = document.querySelector(".leftNavbar i");
 const menu = document.querySelector(".leftNavbar");
-const takeDamageBtn = document.querySelector("#takeDamage > button");
 const takeDamageInput = document.querySelector("#takeDamage > input");
 const profBonusSpan = document.querySelector("#skillsContainer > h1 > span");
 const menuCharName = document.querySelector("#menuCharName");
@@ -23,7 +24,6 @@ const tempHPel = document.querySelector("#tempHPdiv span");
 const armorClassEl = document.querySelector("#armorClass div:first-child");
 const initiativeEl = document.querySelector("#initiative div:first-child");
 const speedEl = document.querySelector("#speed div:first-child");
-const skillsDiv = document.querySelector("#skills");
 
 const proficiencies = ["History", "Persuasion", "Insight", "Religion"];
 

@@ -150,7 +150,8 @@
 }
 
 #takeDamage p {
-  width: 100px;
+  width: 10ch;
+  word-wrap: break-word;
   text-align: center;
   font-family: chance;
   font-size: 1.5rem;
@@ -159,7 +160,7 @@
 }
 
 #takeDamage input[type="number"] {
-  width: 70px;
+  width: 120px;
   height: 50px;
   text-align: center;
   font-size: 1.2rem;

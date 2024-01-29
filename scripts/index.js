@@ -2,26 +2,23 @@
 // localStorage.clear();
 import {
   generateBorder,
-  checkForBorder,
   showMenu,
   hideMenu,
   loadPage,
   getAbilityScoreModifier,
   calculateSkillModifiers,
+  takeDamage,
 } from "./functions.js";
 
 const stats = document.querySelector(".stats");
 const allAbilityElements = document.querySelectorAll(".stats > div");
 const barsIcon = document.querySelector(".menuIcon i");
 const xmarkIcon = document.querySelector(".leftNavbar i");
-const menu = document.querySelector(".leftNavbar");
 const takeDamageBtn = document.querySelector("#takeDamage > button");
-const takeDamageInput = document.querySelector("#takeDamage > input");
 const profBonusSpan = document.querySelector("#skillsContainer > h1 > span");
 const menuCharName = document.querySelector("#menuCharName");
 
 const charDetails = document.querySelector("#character-details");
-const charDetailsSpanEls = charDetails.querySelectorAll("div > span");
 const charName = document.querySelector("#character-name");
 const charRace = document.querySelector("#race");
 const charClass = document.querySelector("#class");
@@ -97,6 +94,7 @@ stats.addEventListener("input", (e) => {
 
 profBonusSpan.addEventListener("input", () => {
   localStorage.profBonus = profBonusSpan.textContent;
+  calculateSkillModifiers();
 });
 
 currentHPel.addEventListener("input", () => {
