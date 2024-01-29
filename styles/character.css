@@ -1,3 +1,8 @@
+@font-face {
+  font-family: chance;
+  src: url("../fonts/BLKCHCRY.ttf");
+}
+
 #character-details {
   width: 100%;
   display: flex;
@@ -150,8 +155,6 @@
 }
 
 #takeDamage p {
-  width: 10ch;
-  word-wrap: break-word;
   text-align: center;
   font-family: chance;
   font-size: 1.5rem;
@@ -160,7 +163,7 @@
 }
 
 #takeDamage input[type="number"] {
-  width: 120px;
+  width: 100px;
   height: 50px;
   text-align: center;
   font-size: 1.2rem;
