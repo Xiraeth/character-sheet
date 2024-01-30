@@ -148,6 +148,7 @@
   padding: 10px;
   background: #ff000055;
   height: 100px;
+  border-bottom: 1px solid var(--main-text-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -189,6 +190,64 @@
 #takeDamage button:active {
   color: #ff000099;
   background: black;
+}
+
+#layOnHandsContainer {
+  padding: 20px;
+}
+
+#layOnHandsContainer h2 {
+  width: 70%;
+  font-size: 2rem;
+  margin: 0 auto 25px;
+  color: var(--secondary-text-color);
+  font-family: chance, Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  text-align: center;
+  border-bottom: 2px solid var(--secondary-text-color);
+}
+
+.layOnHandsForm {
+  display: flex;
+  justify-content: space-around;
+}
+
+.layOnHandsForm > input {
+  font-size: 1.6rem;
+  color: var(--main-text-color);
+  background-color: var(--bg-color-secondary);
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  width: 60px;
+  outline: none;
+}
+
+.layOnHandsForm > input:focus {
+  outline: 1px solid tomato;
+}
+
+.layOnHandsForm > label {
+  font-family: mord, Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 2rem;
+  border-bottom: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#layOnHandsHealBtn {
+  font-size: 1.2rem;
+  background-color: transparent;
+  color: springgreen;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+#layOnHandsHealBtn:active {
+  background-color: springgreen;
+  color: black;
 }
 
 .armorClassSpeedInit {

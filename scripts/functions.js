@@ -15,7 +15,7 @@ const charName = document.querySelector("#character-name");
 const charRace = document.querySelector("#race");
 const charClass = document.querySelector("#class");
 const charBackground = document.querySelector("#background");
-const charLevel = document.querySelector("#character-details > #level > span");
+const charLevel = document.querySelector("#classLevel");
 const charAlignment = document.querySelector("#alignment");
 
 const currentHPel = document.querySelector("#currentHPdiv span");
