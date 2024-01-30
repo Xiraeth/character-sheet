@@ -16,12 +16,43 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 320px;
+  margin: auto;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
-#inventoryContainer li i {
+#inventoryContainer li span {
+  padding: 5px 15px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+#inventoryContainer li span:focus {
+  outline: 2px inset white;
+  border: 2px inset black;
+}
+
+#inventoryContainer li div {
+  display: flex;
+  justify-content: center;
+}
+
+#inventoryContainer li .fa-trash {
+  font-size: 1.3rem;
   color: rgb(214, 14, 14);
   cursor: pointer;
   transition: color 0.15s;
+}
+
+#inventoryContainer li .fa-pen {
+  font-size: 1.3rem;
+  /* color: rgba(220, 220, 220); */
+  color: rgb(155, 205, 255);
+  cursor: pointer;
+  transition: color 0.15s;
+  margin-right: 20px;
 }
 
 #inventoryContainer > div {
