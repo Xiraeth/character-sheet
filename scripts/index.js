@@ -76,19 +76,23 @@ charAlignment.addEventListener("input", () => {
 layOnHandsForm.addEventListener("submit", layOnHandsHeal);
 
 armorClassEl.addEventListener("input", () => {
+  toggleBackgroundColor(armorClassEl);
   localStorage.armorClass = armorClassEl.textContent;
 });
 
 initiativeEl.addEventListener("input", () => {
   localStorage.initiative = initiativeEl.textContent;
+  toggleBackgroundColor(initiativeEl);
 });
 
 speedEl.addEventListener("input", () => {
+  toggleBackgroundColor(speedEl);
   localStorage.speed = speedEl.textContent;
 });
 
 stats.addEventListener("input", (e) => {
   getAbilityScoreModifier(e.target);
+  toggleBackgroundColor(e.target);
   const ability = e.target.parentElement.parentElement.querySelector("b");
   localStorage.setItem(`${ability.textContent}`, e.target.textContent);
   calculateSkillModifiers();
@@ -96,19 +100,23 @@ stats.addEventListener("input", (e) => {
 
 profBonusSpan.addEventListener("input", () => {
   localStorage.profBonus = profBonusSpan.textContent;
+  toggleBackgroundColor(profBonusSpan);
   calculateSkillModifiers();
 });
 
 currentHPel.addEventListener("input", () => {
   localStorage.setItem("currentHP", currentHPel.textContent);
+  toggleBackgroundColor(currentHPel);
 });
 
 maxHPel.addEventListener("input", () => {
   localStorage.setItem("maxHP", maxHPel.textContent);
+  toggleBackgroundColor(maxHPel);
 });
 
 tempHPel.addEventListener("input", () => {
   localStorage.setItem("tempHP", tempHPel.textContent);
+  toggleBackgroundColor(tempHPel);
 });
 
 skillsContainer.addEventListener("click", (e) => toggleProficiency(e));

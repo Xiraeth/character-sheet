@@ -34,22 +34,6 @@ const layOnHandsRemainingEl = document.querySelector(
 
 let proficiencies = JSON.parse(localStorage.profsArray ?? "[]");
 
-// export function generateBorder(element) {
-//   if (element.textContent === "") {
-//     element.style.border = "1px solid rgba(230, 230, 250, 0.5)";
-//   } else {
-//     element.style.border = "none";
-//   }
-// }
-
-// export function checkForBorder(element) {
-//   if (element.textContent === "") {
-//     element.style.border = "1px solid rgba(230, 230, 250, 0.5)";
-//   } else {
-//     element.style.border = "none";
-//   }
-// }
-
 export function showMenu() {
   menu.style.transform = "translateX(0)";
 }
@@ -167,7 +151,6 @@ export function toggleProficiency(e) {
   localStorage.setItem("profsArray", JSON.stringify(proficiencies));
 
   calculateSkillModifiers();
-  console.log(JSON.parse(localStorage.profsArray));
 }
 
 // localStorage.layOnHandsRemaining = 10;
@@ -229,15 +212,27 @@ export function loadPage() {
     const ability = el.querySelector("b").textContent;
     const spanEl = el.querySelector(".abilityScore");
     spanEl.textContent = localStorage.getItem(ability);
+    toggleBackgroundColor(spanEl);
   });
   profBonusSpan.textContent = localStorage.profBonus;
   charDetailsSpanEls.forEach((span) => {
     toggleBackgroundColor(span);
   });
-  toggleBackgroundColor(charName);
+  checkForBackgroundColorOnLoad();
 }
 
 export function updateLayOnHandsValues() {
   layOnHandsInput.max = localStorage.charLevel * 5;
   layOnHandsMaxEl.textContent = localStorage.charLevel * 5;
+}
+
+function checkForBackgroundColorOnLoad() {
+  toggleBackgroundColor(charName);
+  toggleBackgroundColor(currentHPel);
+  toggleBackgroundColor(maxHPel);
+  toggleBackgroundColor(tempHPel);
+  toggleBackgroundColor(armorClassEl);
+  toggleBackgroundColor(initiativeEl);
+  toggleBackgroundColor(speedEl);
+  toggleBackgroundColor(profBonusSpan);
 }

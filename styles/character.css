@@ -303,6 +303,8 @@
   outline: none;
   border: 1px solid rgba(0, 0, 0, 0);
   padding: 5px 10px;
+  border-radius: 5px;
+  min-width: 50px;
 }
 
 .armorClassSpeedInit > div > div:first-child:focus {
@@ -364,8 +366,13 @@
   justify-content: center;
 }
 
+.stats .abilityScore {
+  min-width: 20px;
+  border-radius: 5px;
+}
+
 #skillsContainer h1 {
-  width: 65%;
+  width: 80%;
   margin: 10px auto 10px;
   font-size: 1.3rem;
   font-style: italic;
@@ -379,8 +386,11 @@
   font-style: normal;
   color: var(--main-text-color);
   display: inline-block;
-  min-width: 30px;
   font-family: Arial, Helvetica, sans-serif;
+  margin-left: 20px;
+  min-width: 40px;
+  padding: 3px 15px;
+  border-radius: 5px;
 }
 
 #skills {
