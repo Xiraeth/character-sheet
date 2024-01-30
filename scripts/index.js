@@ -9,6 +9,7 @@ import {
   calculateSkillModifiers,
   takeDamage,
   toggleProficiency,
+  layOnHandsHeal,
 } from "./functions.js";
 
 const stats = document.querySelector(".stats");
@@ -34,6 +35,8 @@ const tempHPel = document.querySelector("#tempHPdiv span");
 const armorClassEl = document.querySelector("#armorClass div:first-child");
 const initiativeEl = document.querySelector("#initiative div:first-child");
 const speedEl = document.querySelector("#speed div:first-child");
+
+const layOnHandsForm = document.querySelector(".layOnHandsForm");
 
 window.addEventListener("load", (e) => {
   loadPage();
@@ -74,6 +77,8 @@ charLevel.addEventListener("input", () => {
 charAlignment.addEventListener("input", () => {
   localStorage.setItem("charAlignment", charAlignment.textContent);
 });
+
+layOnHandsForm.addEventListener("submit", layOnHandsHeal);
 
 armorClassEl.addEventListener("input", () => {
   localStorage.armorClass = armorClassEl.textContent;

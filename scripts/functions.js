@@ -25,6 +25,12 @@ const armorClassEl = document.querySelector("#armorClass div:first-child");
 const initiativeEl = document.querySelector("#initiative div:first-child");
 const speedEl = document.querySelector("#speed div:first-child");
 
+const layOnHandsInput = document.querySelector("#layOnHandsInput");
+const layOnHandsMaxEl = document.querySelector("#layOnHandsMaxValue");
+const layOnHandsRemainingEl = document.querySelector(
+  "#layOnHandsRemainingValue"
+);
+
 let proficiencies = JSON.parse(localStorage.profsArray ?? "[]");
 
 export function generateBorder(element) {
@@ -163,6 +169,24 @@ export function toggleProficiency(e) {
   console.log(JSON.parse(localStorage.profsArray));
 }
 
+// localStorage.layOnHandsRemaining = 10;
+export function layOnHandsHeal(e) {
+  e.preventDefault();
+
+  const healAmount = Number(layOnHandsInput.value);
+  if (healAmount > Number(localStorage.layOnHandsRemaining)) return;
+
+  if (healAmount + Number(currentHPel.textContent) > localStorage.maxHP) return;
+
+  currentHPel.textContent = Number(currentHPel.textContent) + healAmount;
+
+  layOnHandsRemainingEl.textContent -= healAmount;
+  layOnHandsInput.value = "";
+
+  localStorage.layOnHandsRemaining = layOnHandsRemainingEl.textContent;
+  localStorage.currentHP = currentHPel.textContent;
+}
+
 export function loadPage() {
   menuCharName.textContent = localStorage.charName;
   charName.textContent = localStorage.charName;
@@ -177,6 +201,9 @@ export function loadPage() {
   currentHPel.textContent = localStorage.currentHP;
   maxHPel.textContent = localStorage.maxHP;
   tempHPel.textContent = localStorage.tempHP;
+  layOnHandsRemainingEl.textContent = localStorage.layOnHandsRemaining;
+  layOnHandsInput.max = localStorage.charLevel * 5;
+  layOnHandsMaxEl.textContent = localStorage.charLevel * 5;
   allAbilityElements.forEach((el) => {
     const ability = el.querySelector("b").textContent;
     const spanEl = el.querySelector(".abilityScore");
