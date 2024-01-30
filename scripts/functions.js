@@ -172,17 +172,15 @@ export function toggleProficiency(e) {
 // localStorage.layOnHandsRemaining = 10;
 export function layOnHandsHeal(e) {
   e.preventDefault();
-
   const healAmount = Number(layOnHandsInput.value);
+
   if (healAmount > Number(localStorage.layOnHandsRemaining)) {
     flashColor(layOnHandsRemainingEl, "red");
     return;
   }
-
   if (healAmount + Number(currentHPel.textContent) > localStorage.maxHP) return;
 
   currentHPel.textContent = Number(currentHPel.textContent) + healAmount;
-
   layOnHandsRemainingEl.textContent -= healAmount;
   layOnHandsInput.value = "";
 
