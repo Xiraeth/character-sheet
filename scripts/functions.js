@@ -1,7 +1,7 @@
 "use strict";
 
 const MAIN_TEXT_COLOR = "rgb(230, 230, 250)";
-const SECONDARY_TEXT_COLOR = "#dd60dd";
+// const SECONDARY_TEXT_COLOR = "#dd60dd";
 
 const allAbilityElements = document.querySelectorAll(".stats > div");
 const menu = document.querySelector(".leftNavbar");
@@ -25,7 +25,7 @@ const armorClassEl = document.querySelector("#armorClass div:first-child");
 const initiativeEl = document.querySelector("#initiative div:first-child");
 const speedEl = document.querySelector("#speed div:first-child");
 
-const proficiencies = ["History", "Persuasion", "Insight", "Religion"];
+let proficiencies = JSON.parse(localStorage.profsArray ?? "[]");
 
 export function generateBorder(element) {
   if (element.textContent === "") {
@@ -137,10 +137,30 @@ export function calculateSkillModifiers() {
     if (proficiencies.includes(skillNameEl.textContent)) {
       skillModifierEl.textContent =
         Number(profBonusSpan.textContent) + abilityModifier;
+      skillNameEl.classList.add("profColor");
     } else {
       skillModifierEl.textContent = abilityModifier;
     }
   });
+}
+
+export function toggleProficiency(e) {
+  // class='profColor';
+  const targetDiv = e.target.closest("div");
+  if (!targetDiv) return;
+
+  const abilityNamePara = targetDiv.querySelector("p");
+  const abilityName = abilityNamePara.textContent;
+  if (proficiencies.includes(abilityName)) {
+    proficiencies = proficiencies.filter((prof) => prof !== abilityName);
+  } else {
+    proficiencies.push(abilityName);
+  }
+  abilityNamePara.classList.toggle("profColor");
+  localStorage.setItem("profsArray", JSON.stringify(proficiencies));
+
+  calculateSkillModifiers();
+  console.log(JSON.parse(localStorage.profsArray));
 }
 
 export function loadPage() {

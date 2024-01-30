@@ -8,6 +8,7 @@ import {
   getAbilityScoreModifier,
   calculateSkillModifiers,
   takeDamage,
+  toggleProficiency,
 } from "./functions.js";
 
 const stats = document.querySelector(".stats");
@@ -17,6 +18,7 @@ const xmarkIcon = document.querySelector(".leftNavbar i");
 const takeDamageBtn = document.querySelector("#takeDamage > button");
 const profBonusSpan = document.querySelector("#skillsContainer > h1 > span");
 const menuCharName = document.querySelector("#menuCharName");
+const skillsContainer = document.querySelector("#skills");
 
 const charDetails = document.querySelector("#character-details");
 const charName = document.querySelector("#character-name");
@@ -108,3 +110,5 @@ maxHPel.addEventListener("input", () => {
 tempHPel.addEventListener("input", () => {
   localStorage.setItem("tempHP", tempHPel.textContent);
 });
+
+skillsContainer.addEventListener("click", (e) => toggleProficiency(e));
