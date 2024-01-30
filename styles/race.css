@@ -1,29 +1,34 @@
 #race-info {
-	width: 90%;
-	margin: auto;
-	text-align: center;
-	font-family: mord;
-	margin-top: 20px;
-	font-style: italic;
-	padding-bottom: 20px;
-	color: var(--main-text-color);
-	border-bottom: 1px solid var(--main-text-color);;
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  font-family: mord;
+  margin-top: 20px;
+  font-style: italic;
+  padding-bottom: 20px;
+  color: var(--main-text-color);
+  border-bottom: 1px solid var(--main-text-color);
 }
 
 #race-details {
-	width: 90%;
-	margin: 20px auto 0;
+  width: 90%;
+  margin: 20px auto 0;
 }
 #race-details > div {
-	margin-top: 10px;
+  margin-top: 10px;
 }
 
 #race-details > div > h3 {
-	padding-bottom: 0px;
-	color: var(--secondary-text-color);
-	text-decoration: underline;
+  font-size: 1.5rem;
+  padding-bottom: 0px;
+  color: var(--secondary-text-color);
+  text-decoration: underline;
+}
+
+#race-details > div > p {
+  font-size: 1.3rem;
 }
 
 .raceSpecificFeatures {
-	color: var(--secondary-text-color);
+  color: var(--secondary-text-color);
 }
