@@ -204,7 +204,7 @@ export function loadPage() {
   currentHPel.textContent = localStorage.currentHP;
   maxHPel.textContent = localStorage.maxHP;
   tempHPel.textContent = localStorage.tempHP;
-  layOnHandsRemainingEl.textContent = localStorage.layOnHandsRemaining;
+  layOnHandsRemainingEl.textContent = localStorage.layOnHandsRemaining || 30;
   layOnHandsInput.max = localStorage.charLevel * 5;
   layOnHandsMaxEl.textContent = localStorage.charLevel * 5;
   allAbilityElements.forEach((el) => {
