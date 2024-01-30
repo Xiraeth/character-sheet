@@ -4,26 +4,26 @@
   position: relative;
 }
 
-.paladinFeatureSection {
+.classFeatureSection {
   padding: 10px;
   margin-top: 10px;
   font-family: mord, serif;
   font-size: 1.3rem;
 }
 
-.paladinFeatureSection h2 {
+.classFeatureSection h2 {
   font-size: 2rem;
   text-decoration: underline;
   color: var(--secondary-text-color);
   text-align: center;
 }
 
-.paladinFeatureSection > div > div {
+.classFeatureSection > div > div {
   display: inline-block;
   vertical-align: middle;
 }
 
-.paladinFeatureSection h3 {
+.classFeatureSection h3 {
   color: var(--secondary-text-color);
   display: inline-block;
   text-decoration: underline;
