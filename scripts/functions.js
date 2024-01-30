@@ -34,21 +34,21 @@ const layOnHandsRemainingEl = document.querySelector(
 
 let proficiencies = JSON.parse(localStorage.profsArray ?? "[]");
 
-export function generateBorder(element) {
-  if (element.textContent === "") {
-    element.style.border = "1px solid rgba(230, 230, 250, 0.5)";
-  } else {
-    element.style.border = "none";
-  }
-}
+// export function generateBorder(element) {
+//   if (element.textContent === "") {
+//     element.style.border = "1px solid rgba(230, 230, 250, 0.5)";
+//   } else {
+//     element.style.border = "none";
+//   }
+// }
 
-export function checkForBorder(element) {
-  if (element.textContent === "") {
-    element.style.border = "1px solid rgba(230, 230, 250, 0.5)";
-  } else {
-    element.style.border = "none";
-  }
-}
+// export function checkForBorder(element) {
+//   if (element.textContent === "") {
+//     element.style.border = "1px solid rgba(230, 230, 250, 0.5)";
+//   } else {
+//     element.style.border = "none";
+//   }
+// }
 
 export function showMenu() {
   menu.style.transform = "translateX(0)";
@@ -202,6 +202,12 @@ export function layOnHandsHeal(e) {
   }
 }
 
+export function toggleBackgroundColor(element) {
+  if (element.textContent.trim() !== "") {
+    element.style.backgroundColor = "transparent";
+  } else element.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+}
+
 export function loadPage() {
   menuCharName.textContent = localStorage.charName;
   charName.textContent = localStorage.charName;
@@ -226,6 +232,12 @@ export function loadPage() {
   });
   profBonusSpan.textContent = localStorage.profBonus;
   charDetailsSpanEls.forEach((span) => {
-    checkForBorder(span);
+    toggleBackgroundColor(span);
   });
+  toggleBackgroundColor(charName);
+}
+
+export function updateLayOnHandsValues() {
+  layOnHandsInput.max = localStorage.charLevel * 5;
+  layOnHandsMaxEl.textContent = localStorage.charLevel * 5;
 }

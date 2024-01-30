@@ -1,14 +1,13 @@
 "use strict";
 import {
-  generateBorder,
-  showMenu,
-  hideMenu,
   loadPage,
   getAbilityScoreModifier,
   calculateSkillModifiers,
   takeDamage,
   toggleProficiency,
   layOnHandsHeal,
+  toggleBackgroundColor,
+  updateLayOnHandsValues,
 } from "./functions.js";
 
 const stats = document.querySelector(".stats");
@@ -48,12 +47,13 @@ takeDamageBtn.addEventListener("click", takeDamage);
 
 charDetails.addEventListener("input", (e) => {
   const span = e.target.closest("span");
-  generateBorder(span);
+  toggleBackgroundColor(span);
 });
 
 charName.addEventListener("input", (e) => {
   localStorage.setItem("charName", charName.textContent);
   menuCharName.textContent = localStorage.charName;
+  toggleBackgroundColor(charName);
 });
 
 charRace.addEventListener("input", () => {
@@ -67,6 +67,7 @@ charBackground.addEventListener("input", () => {
 });
 charLevel.addEventListener("input", () => {
   localStorage.setItem("charLevel", charLevel.textContent);
+  updateLayOnHandsValues();
 });
 charAlignment.addEventListener("input", () => {
   localStorage.setItem("charAlignment", charAlignment.textContent);
