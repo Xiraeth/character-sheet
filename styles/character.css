@@ -197,18 +197,19 @@
 }
 
 #layOnHandsContainer h2 {
-  width: 70%;
+  width: 60%;
   font-size: 2rem;
   margin: 0 auto 25px;
   color: var(--secondary-text-color);
   font-family: chance, Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   text-align: center;
-  border-bottom: 2px solid var(--secondary-text-color);
+  border-bottom: 1px solid var(--secondary-text-color);
 }
 
 .layOnHandsForm {
   display: flex;
   justify-content: space-around;
+  align-items: stretch;
 }
 
 .layOnHandsForm > input {

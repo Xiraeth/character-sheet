@@ -1,5 +1,4 @@
 "use strict";
-// localStorage.clear();
 import {
   generateBorder,
   showMenu,
