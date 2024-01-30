@@ -25,6 +25,7 @@ const armorClassEl = document.querySelector("#armorClass div:first-child");
 const initiativeEl = document.querySelector("#initiative div:first-child");
 const speedEl = document.querySelector("#speed div:first-child");
 
+const layOnHandsTarget = document.querySelector("#layOnHandsTarget");
 const layOnHandsInput = document.querySelector("#layOnHandsInput");
 const layOnHandsMaxEl = document.querySelector("#layOnHandsMaxValue");
 const layOnHandsRemainingEl = document.querySelector(
@@ -174,18 +175,31 @@ export function layOnHandsHeal(e) {
   e.preventDefault();
   const healAmount = Number(layOnHandsInput.value);
 
-  if (healAmount > Number(localStorage.layOnHandsRemaining)) {
-    flashColor(layOnHandsRemainingEl, "red");
-    return;
+  if (layOnHandsTarget.value == "Self") {
+    if (healAmount > Number(localStorage.layOnHandsRemaining)) {
+      flashColor(layOnHandsRemainingEl, "red");
+      return;
+    }
+    if (healAmount + Number(currentHPel.textContent) > localStorage.maxHP)
+      return;
+
+    currentHPel.textContent = Number(currentHPel.textContent) + healAmount;
+    layOnHandsRemainingEl.textContent -= healAmount;
+    layOnHandsInput.value = "";
+    flashColor(currentHPel, "springgreen");
+
+    localStorage.layOnHandsRemaining = layOnHandsRemainingEl.textContent;
+    localStorage.currentHP = currentHPel.textContent;
+  } else {
+    if (healAmount > Number(localStorage.layOnHandsRemaining)) {
+      flashColor(layOnHandsRemainingEl, "red");
+      return;
+    }
+    layOnHandsRemainingEl.textContent -= healAmount;
+    layOnHandsInput.value = "";
+
+    localStorage.layOnHandsRemaining = layOnHandsRemainingEl.textContent;
   }
-  if (healAmount + Number(currentHPel.textContent) > localStorage.maxHP) return;
-
-  currentHPel.textContent = Number(currentHPel.textContent) + healAmount;
-  layOnHandsRemainingEl.textContent -= healAmount;
-  layOnHandsInput.value = "";
-
-  localStorage.layOnHandsRemaining = layOnHandsRemainingEl.textContent;
-  localStorage.currentHP = currentHPel.textContent;
 }
 
 export function loadPage() {

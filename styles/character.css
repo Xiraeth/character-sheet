@@ -210,6 +210,9 @@
   display: flex;
   justify-content: space-around;
   align-items: stretch;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 20px;
 }
 
 .layOnHandsForm > input {
@@ -237,6 +240,25 @@
 
 .layOnHandsForm > label > span {
   transition: all 0.15s;
+}
+
+.layOnHandsForm > select {
+  font-size: 1.5rem;
+  background-color: transparent;
+  color: springgreen;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.layOnHandsForm select::-ms-expand {
+  display: none; /* For Microsoft Edge to hide the default arrow */
+}
+
+.layOnHandsForm select option {
+  background-color: transparent;
+  color: springgreen;
+  padding: 5px;
 }
 
 #layOnHandsHealBtn {
