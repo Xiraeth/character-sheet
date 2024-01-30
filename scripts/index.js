@@ -13,8 +13,6 @@ import {
 
 const stats = document.querySelector(".stats");
 const allAbilityElements = document.querySelectorAll(".stats > div");
-const barsIcon = document.querySelector(".menuIcon i");
-const xmarkIcon = document.querySelector(".leftNavbar i");
 const takeDamageBtn = document.querySelector("#takeDamage > button");
 const profBonusSpan = document.querySelector("#skillsContainer > h1 > span");
 const menuCharName = document.querySelector("#menuCharName");
@@ -46,9 +44,6 @@ window.addEventListener("load", (e) => {
   calculateSkillModifiers();
 });
 
-// Menu interaction
-barsIcon.addEventListener("click", showMenu);
-xmarkIcon.addEventListener("click", hideMenu);
 takeDamageBtn.addEventListener("click", takeDamage);
 
 charDetails.addEventListener("input", (e) => {

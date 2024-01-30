@@ -2,6 +2,7 @@
 @import url(class.css);
 @import url(race.css);
 @import url(spells.css);
+@import url(inventory.css);
 
 @font-face {
   font-family: mord;

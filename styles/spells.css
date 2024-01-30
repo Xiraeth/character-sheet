@@ -64,52 +64,29 @@
   padding: 7px;
 }
 
-table {
-  margin: auto;
-}
-
-table,
-tr,
-td {
-  padding: 10px;
-  border-collapse: collapse;
-}
-
-tr {
-  border-bottom: 1px solid var(--secondary-text-color);
-}
-
-tr:last-child {
-  border-bottom: none;
-}
-
-td {
-  font-size: 1.5rem;
-}
-
-ul {
+.spellsSection ul {
   width: 250px;
   margin: 10px auto 20px;
   font-size: 1.4rem;
   list-style-type: none;
 }
 
-ul a {
+.spellsSection ul a {
   text-decoration: none;
   color: white;
 }
 
-li:hover {
+.spellsSection li:hover {
   background: papayawhip;
   color: black;
 }
 
-li:active {
+.spellsSection li:active {
   background: moccasin;
   color: black;
 }
 
-li {
+.spellsSection li {
   border-bottom: 1px solid var(--secondary-text-color);
   padding: 10px;
 }

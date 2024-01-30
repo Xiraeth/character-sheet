@@ -1,8 +1,5 @@
 "use strict";
 
-const barsIcon = document.querySelector(".menuIcon i");
-const xmarkIcon = document.querySelector(".leftNavbar i");
-const menu = document.querySelector(".leftNavbar");
 const spellSaveDC = document.querySelector("#spellSaveDC > span");
 const spellAtkBns = document.querySelector("#spellAtkBns > span");
 const allTrashCans = document.querySelectorAll(".fa-trash");
@@ -67,15 +64,3 @@ spellSaveDC.addEventListener("input", (e) => {
 spellAtkBns.addEventListener("input", () => {
   localStorage.setItem("spellAtkBns", spellAtkBns.textContent);
 });
-
-// UI handling code
-barsIcon.addEventListener("click", showMenu);
-xmarkIcon.addEventListener("click", hideMenu);
-
-function showMenu() {
-  menu.style.transform = "translateX(0)";
-}
-
-function hideMenu() {
-  menu.style.transform = "translateX(-100px)";
-}

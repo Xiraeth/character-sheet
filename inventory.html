@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Mobile phone character sheet" />
+    <meta name="keywords" content="dnd, characterSheet, tabletop, rpg, game" />
+    <meta name="author" content="Xiraeth" />
+    <title>Character Sheet</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="icon" type="image/x-icon" href="images/dnd.webp" />
+    <script
+      src="https://kit.fontawesome.com/00de2a7224.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="scripts/inventory.js" type="module" defer></script>
+    <script src="scripts/navigate.js" type="module" defer></script>
+  </head>
+
+  <body>
+    <div class="menuIcon">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <div class="leftNavbar">
+      <i class="fa-solid fa-xmark"></i>
+      <div><a href="index.html" id="menuCharName">Malady</a></div>
+      <div><a href="race.html">Race</a></div>
+      <div><a href="class.html">Class</a></div>
+      <div><a href="spells.html">Spells</a></div>
+      <div><a href="inventory.html">Inventory</a></div>
+    </div>
+
+    <div class="pageHeader" contenteditable="true">Inventory</div>
+
+    <div id="inventoryContainer">
+      <div>
+        <input type="text" id="addItemInput" />
+        <i id="addItemBtn" class="fa-solid fa-circle-plus"></i>
+      </div>
+      <ul id="inventoryList">
+        <li>Shield<i class="fa-solid fa-trash"></i></li>
+        <li>Lesser restoration Potion<i class="fa-solid fa-trash"></i></li>
+        <li>Cloak of Elvenkind<i class="fa-solid fa-trash"></i></li>
+      </ul>
+    </div>
+  </body>
+</html>
