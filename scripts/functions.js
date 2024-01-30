@@ -174,7 +174,10 @@ export function layOnHandsHeal(e) {
   e.preventDefault();
 
   const healAmount = Number(layOnHandsInput.value);
-  if (healAmount > Number(localStorage.layOnHandsRemaining)) return;
+  if (healAmount > Number(localStorage.layOnHandsRemaining)) {
+    flashColor(layOnHandsRemainingEl, "red");
+    return;
+  }
 
   if (healAmount + Number(currentHPel.textContent) > localStorage.maxHP) return;
 
