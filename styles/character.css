@@ -175,6 +175,7 @@
   background: transparent;
   color: var(--main-text-color);
   border-radius: 5px;
+  box-shadow: 1px 1px 6px 1px rgba(0,0,0,0.5);
 }
 
 #takeDamage button {
@@ -186,6 +187,7 @@
   border-radius: 5px;
   background: transparent;
   transition: all 0.2s;
+  box-shadow: 1px 1px 6px 1px rgba(0,0,0,0.5);
 }
 
 #takeDamage button:active {
@@ -225,6 +227,7 @@
   text-align: center;
   width: 60px;
   outline: none;
+  box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.6);
 }
 
 .layOnHandsForm > input:focus {
@@ -250,16 +253,7 @@
   border: 1px solid black;
   border-radius: 5px;
   padding: 5px;
-}
-
-.layOnHandsForm select::-ms-expand {
-  display: none; /* For Microsoft Edge to hide the default arrow */
-}
-
-.layOnHandsForm select option {
-  background-color: transparent;
-  color: springgreen;
-  padding: 5px;
+  box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.6);
 }
 
 #layOnHandsHealBtn {
@@ -271,6 +265,7 @@
   padding: 5px 15px;
   cursor: pointer;
   transition: all 0.15s;
+  box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.6);
 }
 
 #layOnHandsHealBtn:active {
