@@ -3,8 +3,10 @@ import {
   loadPage,
   getAbilityScoreModifier,
   calculateSkillModifiers,
+  calculateSavingThrowModifiers,
   takeDamage,
   toggleProficiency,
+  toggleSaveProficiency,
   layOnHandsHeal,
   toggleBackgroundColor,
   updateLayOnHandsValues,
@@ -16,6 +18,7 @@ const takeDamageBtn = document.querySelector("#takeDamage > button");
 const profBonusSpan = document.querySelector("#skillsContainer > h1 > span");
 const menuCharName = document.querySelector("#menuCharName");
 const skillsContainer = document.querySelector("#skills");
+const savingThrowContainer = document.querySelector('#savingThrows');
 
 const charDetails = document.querySelector("#character-details");
 const charName = document.querySelector("#character-name");
@@ -34,6 +37,7 @@ const speedEl = document.querySelector("#speed div:first-child");
 
 const layOnHandsForm = document.querySelector(".layOnHandsForm");
 
+
 window.addEventListener("load", (e) => {
   loadPage();
   allAbilityElements.forEach((el) => {
@@ -41,6 +45,7 @@ window.addEventListener("load", (e) => {
     getAbilityScoreModifier(abilityScoreElement);
   });
   calculateSkillModifiers();
+  calculateSavingThrowModifiers();
 });
 
 takeDamageBtn.addEventListener("click", takeDamage);
@@ -96,12 +101,14 @@ stats.addEventListener("input", (e) => {
   const ability = e.target.parentElement.parentElement.querySelector("b");
   localStorage.setItem(`${ability.textContent}`, e.target.textContent);
   calculateSkillModifiers();
+  calculateSavingThrowModifiers();
 });
 
 profBonusSpan.addEventListener("input", () => {
   localStorage.profBonus = profBonusSpan.textContent;
   toggleBackgroundColor(profBonusSpan);
   calculateSkillModifiers();
+  calculateSavingThrowModifiers();
 });
 
 currentHPel.addEventListener("input", () => {
@@ -119,4 +126,5 @@ tempHPel.addEventListener("input", () => {
   toggleBackgroundColor(tempHPel);
 });
 
-skillsContainer.addEventListener("click", (e) => toggleProficiency(e));
+skillsContainer.addEventListener("click", toggleProficiency);
+savingThrowContainer.addEventListener('click', toggleSaveProficiency);

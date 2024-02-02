@@ -4,6 +4,8 @@ const MAIN_TEXT_COLOR = "rgb(230, 230, 250)";
 // const SECONDARY_TEXT_COLOR = "#dd60dd";
 
 const allAbilityElements = document.querySelectorAll(".stats > div");
+const allSkills = document.querySelectorAll("#skills > div");
+const allSavingThrows = document.querySelectorAll('#savingThrows > div');
 const menu = document.querySelector(".leftNavbar");
 const takeDamageInput = document.querySelector("#takeDamage > input");
 const profBonusSpan = document.querySelector("#skillsContainer > h1 > span");
@@ -32,7 +34,9 @@ const layOnHandsRemainingEl = document.querySelector(
   "#layOnHandsRemainingValue"
 );
 
+
 let proficiencies = JSON.parse(localStorage.profsArray ?? "[]");
+let savingThrowProfs = JSON.parse(localStorage.savingThrowProfs ?? "[]");
 
 export function showMenu() {
   menu.style.transform = "translateX(0)";
@@ -106,11 +110,43 @@ export function getAbilityScoreModifier(abilityScoreElement) {
   modifierSpan.textContent = `(${modifier >= 0 ? "+" : ""}${modifier})`;
 }
 
-export function calculateSkillModifiers() {
-  const allSkills = document.querySelectorAll("#skills > div");
+export function calculateSavingThrowModifiers() {
+  allSavingThrows.forEach(savingThrow => {
+    const saveDiv = savingThrow;
+    const abilityNameEl = saveDiv.querySelector('div');
+    const abilityName = abilityNameEl.textContent.trim();
+    const abilityNameShort = abilityNameEl.dataset.save;
 
+    // The dot next to the abiliy name
+    const iEl = saveDiv.querySelector('i');
+
+    const savingThrowModifierEl = saveDiv.querySelector('span');
+
+    const statDiv = document.querySelector(`.stats > .${abilityNameShort}`);
+    const abilityModifier = Number(
+      statDiv.querySelector(`div > .modifier`).textContent.slice(1, -1)
+    );
+    
+    if (isNaN(abilityModifier)) {
+      skillModifierEl.textContent = "-";
+      return;
+    }
+
+    if (savingThrowProfs.includes(abilityName)) {
+      savingThrowModifierEl.textContent =
+        Number(profBonusSpan.textContent) + abilityModifier;
+      abilityNameEl.classList.add("profColor");
+      iEl.className = "fa-solid fa-circle";
+    } else {
+      savingThrowModifierEl.textContent = abilityModifier;
+      iEl.className = "fa-regular fa-circle";
+  }
+  })
+}
+
+export function calculateSkillModifiers() {
   allSkills.forEach((skill) => {
-    const skillNameEl = skill.querySelector("p");
+    const skillNameEl = skill.querySelector("div");
     const skillModifierEl = skill.querySelector("span");
 
     const abilityName = skillNameEl.dataset.ability;
@@ -137,10 +173,13 @@ export function calculateSkillModifiers() {
 
 export function toggleProficiency(e) {
   // class='profColor';
-  const targetDiv = e.target.closest("div");
+  const targetDiv = e.target.closest(".skillDiv");
   if (!targetDiv) return;
 
-  const abilityNamePara = targetDiv.querySelector("p");
+  console.log(targetDiv);
+  
+  const abilityNamePara = targetDiv.querySelector("div");
+
   const abilityName = abilityNamePara.textContent;
   if (proficiencies.includes(abilityName)) {
     proficiencies = proficiencies.filter((prof) => prof !== abilityName);
@@ -151,6 +190,29 @@ export function toggleProficiency(e) {
   localStorage.setItem("profsArray", JSON.stringify(proficiencies));
 
   calculateSkillModifiers();
+}
+
+export function toggleSaveProficiency(e) {
+  const targetDiv = e.target.closest('.saveDiv');
+  if (!targetDiv) return;
+  
+  const abilityNameEl = targetDiv.querySelector('div');
+  const abilityName = abilityNameEl.textContent.trim();
+
+  const iEl = targetDiv.querySelector('i');
+  
+  if (savingThrowProfs.includes(abilityName)) {
+    savingThrowProfs = savingThrowProfs.filter(save => save !== abilityName);
+    iEl.className = "fa-regular fa-circle";
+  } else {
+    savingThrowProfs.push(abilityName);
+    iEl.className = "fa-solid fa-circle";
+  }
+
+  abilityNameEl.classList.toggle('profColor');
+  localStorage.setItem("savingThrowProfs", JSON.stringify(savingThrowProfs));
+
+  calculateSavingThrowModifiers();
 }
 
 // localStorage.layOnHandsRemaining = 10;
