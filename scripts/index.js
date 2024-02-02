@@ -15,6 +15,7 @@ import {
 } from "./functions.js";
 
 let previousValue;
+let previousHP;
 
 const stats = document.querySelector(".stats");
 const allAbilityElements = document.querySelectorAll(".stats > div");
@@ -127,10 +128,21 @@ profBonusSpan.addEventListener("input", (e) => {
   calculateSavingThrowModifiers();
 });
 
+currentHPel.addEventListener("focus", () => {
+  previousHP = Number(currentHPel.textContent);
+});
+
 currentHPel.addEventListener("input", (e) => {
   filterNonNumbers(e);
   localStorage.setItem("currentHP", currentHPel.textContent);
   toggleBackgroundColor(currentHPel);
+});
+
+currentHPel.addEventListener("blur", () => {
+  if (Number(currentHPel.textContent) > Number(localStorage.maxHP)) {
+    currentHPel.textContent = previousHP;
+    localStorage.currentHP = previousHP;
+  }
 });
 
 maxHPel.addEventListener("input", (e) => {
@@ -151,11 +163,11 @@ layOnHandsRemainingEl.addEventListener("input", (e) => {
   localStorage.setItem("layOnHandsRemaining", remainingHeal);
 });
 
-layOnHandsRemainingEl.addEventListener("focus", (e) => {
+layOnHandsRemainingEl.addEventListener("focus", () => {
   previousValue = layOnHandsRemainingEl.textContent;
 });
 
-layOnHandsRemainingEl.addEventListener("blur", (e) => {
+layOnHandsRemainingEl.addEventListener("blur", () => {
   if (layOnHandsRemainingEl.textContent > localStorage.charLevel * 5) {
     layOnHandsRemainingEl.textContent = previousValue;
     localStorage.setItem("layOnHandsRemaining", previousValue);

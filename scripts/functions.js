@@ -260,11 +260,13 @@ export function longRest() {
   layOnHandsRemainingEl.textContent = localStorage.charLevel * 5;
   localStorage.layOnHandsRemaining = localStorage.charLevel * 5;
 
-  localStorage.firstLvExpended = localStorage.firstLvSpellSlots;
-  localStorage.secondLvExpended = localStorage.secondLvSpellSlots;
+  localStorage.firstLvExpended = 0;
+  localStorage.secondLvExpended = 0;
 
-  location.reload();
-  window.scrollTo(0, 0);
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 }
 
 export function loadPage() {
@@ -317,7 +319,7 @@ function checkForBackgroundColorOnLoad() {
 export function filterNonNumbers(e) {
   let inputText = e.target.innerText;
   let caretPosition = getCaretPosition(e.target);
-  let numericText = inputText.replace(/[^0-9]/g, "");
+  let numericText = inputText.replace(/[^0-9-]/g, "");
   e.target.innerText = numericText;
   setSelectionRange(e.target, caretPosition, caretPosition);
 }

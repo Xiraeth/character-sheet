@@ -2,7 +2,6 @@
 
 const spellSaveDC = document.querySelector("#spellSaveDC > span");
 const spellAtkBns = document.querySelector("#spellAtkBns > span");
-const allTrashCans = document.querySelectorAll(".fa-trash");
 const firstLvSpellSlots = document.querySelector(
   ".firstLevelSpells > .spellSlots > .ss > span"
 );
@@ -33,34 +32,70 @@ window.addEventListener("load", function (e) {
   ).toLocaleString();
 });
 
-allTrashCans.forEach((trashCan) => {
-  trashCan.addEventListener("click", (e) => {
-    e.preventDefault();
-    const li = e.target.closest("li");
-    li.remove();
-  });
-});
-
-firstLvSpellSlots.addEventListener("input", () => {
+firstLvSpellSlots.addEventListener("input", (e) => {
+  filterNonNumbers(e);
   localStorage.setItem("firstLvSpellSlots", firstLvSpellSlots.textContent);
 });
 
-firstLvExpended.addEventListener("input", () => {
+firstLvExpended.addEventListener("input", (e) => {
+  filterNonNumbers(e);
   localStorage.setItem("firstLvExpended", firstLvExpended.textContent);
 });
 
-secondLvSpellSlots.addEventListener("input", () => {
+secondLvSpellSlots.addEventListener("input", (e) => {
+  filterNonNumbers(e);
   localStorage.setItem("secondLvSpellSlots", secondLvSpellSlots.textContent);
 });
 
-secondLvExpended.addEventListener("input", () => {
+secondLvExpended.addEventListener("input", (e) => {
+  filterNonNumbers(e);
   localStorage.setItem("secondLvExpended", secondLvExpended.textContent);
 });
 
 spellSaveDC.addEventListener("input", (e) => {
+  filterNonNumbers(e);
   localStorage.setItem("spellSaveDC", spellSaveDC.textContent);
 });
 
-spellAtkBns.addEventListener("input", () => {
+spellAtkBns.addEventListener("input", (e) => {
+  filterNonNumbers(e);
   localStorage.setItem("spellAtkBns", spellAtkBns.textContent);
 });
+
+function filterNonNumbers(e) {
+  let inputText = e.target.innerText;
+  let caretPosition = getCaretPosition(e.target);
+  let numericText = inputText.replace(/[^0-9-]/g, "");
+  e.target.innerText = numericText;
+  setSelectionRange(e.target, caretPosition, caretPosition);
+}
+
+function getCaretPosition(element) {
+  if (window.getSelection && window.getSelection().getRangeAt) {
+    const range = window.getSelection().getRangeAt(0);
+    const preCaretRange = range.cloneRange();
+    preCaretRange.selectNodeContents(element);
+    preCaretRange.setEnd(range.endContainer, range.endOffset);
+    return preCaretRange.toString().length;
+  }
+  return 0;
+}
+
+function setSelectionRange(element, start, end) {
+  if (document.createRange && window.getSelection) {
+    let range = document.createRange();
+    range.selectNodeContents(element);
+    let textNode = element.firstChild;
+
+    // Ensure start and end are within valid bounds
+    start = Math.min(start, textNode.length);
+    end = Math.min(end, textNode.length);
+
+    range.setStart(textNode, start);
+    range.setEnd(textNode, end);
+
+    let sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  }
+}
