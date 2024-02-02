@@ -62,6 +62,7 @@ body {
   position: absolute;
   top: 20px;
   left: 20px;
+  cursor: pointer;
   transition: all 0.2s;
 }
 
@@ -94,6 +95,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 75px;
+  cursor: pointer;
 }
 
 .leftNavbar > div,

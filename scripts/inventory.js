@@ -5,7 +5,6 @@ const addItemBtn = document.querySelector("#addItemBtn");
 const inventoryList = document.querySelector("#inventoryList");
 
 let inventoryArray = JSON.parse(localStorage.inventoryArray ?? "[]");
-console.log(inventoryArray);
 
 window.addEventListener("load", loadPageList);
 
