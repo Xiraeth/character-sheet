@@ -9,7 +9,8 @@
 }
 
 #inventoryContainer li {
-  font-family: chance;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
   font-size: 1.5rem;
   border-bottom: 1px solid var(--secondary-text-color);
   padding: 20px;
