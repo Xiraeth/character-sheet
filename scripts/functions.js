@@ -95,15 +95,13 @@ export function getAbilityScoreModifier(abilityScoreElement) {
     abilityScoreElement.parentElement.querySelector(".modifier");
 
   let content = abilityScoreElement.textContent;
-  let numericContent = content.replace(/\D/g, "");
-  abilityScoreElement.textContent = numericContent;
 
   if (abilityScoreElement.textContent == "") {
     modifierSpan.textContent = "(-)";
     return;
   }
 
-  let abilityScore = parseInt(numericContent);
+  let abilityScore = parseInt(content);
   let modifier = Math.floor((abilityScore - 10) / 2);
 
   modifierSpan.textContent = `(${modifier >= 0 ? "+" : ""}${modifier})`;
@@ -127,7 +125,7 @@ export function calculateSavingThrowModifiers() {
     );
 
     if (isNaN(abilityModifier)) {
-      skillModifierEl.textContent = "-";
+      savingThrowModifierEl.textContent = "-";
       return;
     }
 
@@ -270,7 +268,7 @@ export function loadPage() {
   layOnHandsInput.max = localStorage.charLevel * 5;
   layOnHandsMaxEl.textContent = localStorage.charLevel * 5;
   allAbilityElements.forEach((el) => {
-    const ability = el.querySelector("b").textContent;
+    const ability = el.querySelector("b").textContent.toLowerCase();
     const spanEl = el.querySelector(".abilityScore");
     spanEl.textContent = localStorage.getItem(ability);
     toggleBackgroundColor(spanEl);
@@ -302,8 +300,7 @@ function checkForBackgroundColorOnLoad() {
 export function filterNonNumbers(e) {
   let inputText = e.target.innerText;
   let caretPosition = getCaretPosition(e.target);
-
-  let numericText = inputText.replace(/[^0-9]/g, ""); // Remove non-numeric characters
+  let numericText = inputText.replace(/[^0-9]/g, "");
   e.target.innerText = numericText;
   setSelectionRange(e.target, caretPosition, caretPosition);
 }
@@ -324,8 +321,14 @@ function setSelectionRange(element, start, end) {
     let range = document.createRange();
     range.selectNodeContents(element);
     let textNode = element.firstChild;
+
+    // Ensure start and end are within valid bounds
+    start = Math.min(start, textNode.length);
+    end = Math.min(end, textNode.length);
+
     range.setStart(textNode, start);
     range.setEnd(textNode, end);
+
     let sel = window.getSelection();
     sel.removeAllRanges();
     sel.addRange(range);

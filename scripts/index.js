@@ -70,7 +70,8 @@ charClass.addEventListener("input", () => {
 charBackground.addEventListener("input", () => {
   localStorage.setItem("charBackground", charBackground.textContent);
 });
-charLevel.addEventListener("input", () => {
+charLevel.addEventListener("input", (e) => {
+  filterNonNumbers(e);
   localStorage.setItem("charLevel", charLevel.textContent);
   updateLayOnHandsValues();
 });
@@ -80,26 +81,33 @@ charAlignment.addEventListener("input", () => {
 
 layOnHandsForm.addEventListener("submit", layOnHandsHeal);
 
-armorClassEl.addEventListener("input", () => {
+armorClassEl.addEventListener("input", (e) => {
+  filterNonNumbers(e);
   toggleBackgroundColor(armorClassEl);
   localStorage.armorClass = armorClassEl.textContent;
 });
 
-initiativeEl.addEventListener("input", () => {
+initiativeEl.addEventListener("input", (e) => {
+  filterNonNumbers(e);
   localStorage.initiative = initiativeEl.textContent;
   toggleBackgroundColor(initiativeEl);
 });
 
-speedEl.addEventListener("input", () => {
+speedEl.addEventListener("input", (e) => {
+  filterNonNumbers(e);
   toggleBackgroundColor(speedEl);
   localStorage.speed = speedEl.textContent;
 });
 
 stats.addEventListener("input", (e) => {
+  filterNonNumbers(e);
   getAbilityScoreModifier(e.target);
   toggleBackgroundColor(e.target);
   const ability = e.target.parentElement.parentElement.querySelector("b");
-  localStorage.setItem(`${ability.textContent}`, e.target.textContent);
+  localStorage.setItem(
+    `${ability.textContent.toLowerCase()}`,
+    e.target.textContent
+  );
   calculateSkillModifiers();
   calculateSavingThrowModifiers();
 });
