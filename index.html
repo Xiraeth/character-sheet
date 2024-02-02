@@ -86,12 +86,10 @@
       <form class="layOnHandsForm">
         <!-- Add 'max' value using JavaScript: -->
         <input id="layOnHandsInput" type="number" min="1" />
-        <label for="layOnHandsInput"
-          ><span id="layOnHandsRemainingValue">30</span>/<span
-            id="layOnHandsMaxValue"
-            >30</span
-          ></label
-        >
+        <div for="layOnHandsInput">
+          <span id="layOnHandsRemainingValue" contenteditable="true">30</span
+          >/<span id="layOnHandsMaxValue">30</span>
+        </div>
         <button id="layOnHandsHealBtn">Heal</button>
         <select name="layOnHandsTarget" id="layOnHandsTarget">
           <option value="Self">Self</option>
@@ -275,6 +273,13 @@
           </div>
           <span>0</span>
         </div>
+      </div>
+    </div>
+
+    <div class="rest">
+      <!-- <h1>Rest</h1> -->
+      <div class="longRest">
+        <button id="longRestButton">Long Rest</button>
       </div>
     </div>
   </body>

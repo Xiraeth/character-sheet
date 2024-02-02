@@ -6,13 +6,13 @@ const allTrashCans = document.querySelectorAll(".fa-trash");
 const firstLvSpellSlots = document.querySelector(
   ".firstLevelSpells > .spellSlots > .ss > span"
 );
-const firstLvExpanded = document.querySelector(
+const firstLvExpended = document.querySelector(
   ".firstLevelSpells > .spellSlots > .expended > span"
 );
 const secondLvSpellSlots = document.querySelector(
   ".secondLevelSpells > .spellSlots > .ss > span"
 );
-const secondLvExpanded = document.querySelector(
+const secondLvExpended = document.querySelector(
   ".secondLevelSpells > .spellSlots > .expended > span"
 );
 
@@ -22,14 +22,14 @@ window.addEventListener("load", function (e) {
   firstLvSpellSlots.textContent = Number(
     localStorage.firstLvSpellSlots
   ).toLocaleString();
-  firstLvExpanded.textContent = Number(
-    localStorage.firstLvExpanded
+  firstLvExpended.textContent = Number(
+    localStorage.firstLvExpended
   ).toLocaleString();
   secondLvSpellSlots.textContent = Number(
     localStorage.secondLvSpellSlots
   ).toLocaleString();
-  secondLvExpanded.textContent = Number(
-    localStorage.secondLvExpanded
+  secondLvExpended.textContent = Number(
+    localStorage.secondLvExpended
   ).toLocaleString();
 });
 
@@ -45,16 +45,16 @@ firstLvSpellSlots.addEventListener("input", () => {
   localStorage.setItem("firstLvSpellSlots", firstLvSpellSlots.textContent);
 });
 
-firstLvExpanded.addEventListener("input", () => {
-  localStorage.setItem("firstLvExpanded", firstLvExpanded.textContent);
+firstLvExpended.addEventListener("input", () => {
+  localStorage.setItem("firstLvExpended", firstLvExpended.textContent);
 });
 
 secondLvSpellSlots.addEventListener("input", () => {
   localStorage.setItem("secondLvSpellSlots", secondLvSpellSlots.textContent);
 });
 
-secondLvExpanded.addEventListener("input", () => {
-  localStorage.setItem("secondLvExpanded", secondLvExpanded.textContent);
+secondLvExpended.addEventListener("input", () => {
+  localStorage.setItem("secondLvExpended", secondLvExpended.textContent);
 });
 
 spellSaveDC.addEventListener("input", (e) => {

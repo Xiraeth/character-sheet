@@ -250,6 +250,23 @@ export function toggleBackgroundColor(element) {
   } else element.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
 }
 
+export function longRest() {
+  tempHPel.textContent = 0;
+  localStorage.tempHP = 0;
+
+  currentHPel.textContent = localStorage.maxHP;
+  localStorage.currentHP = localStorage.maxHP;
+
+  layOnHandsRemainingEl.textContent = localStorage.charLevel * 5;
+  localStorage.layOnHandsRemaining = localStorage.charLevel * 5;
+
+  localStorage.firstLvExpended = localStorage.firstLvSpellSlots;
+  localStorage.secondLvExpended = localStorage.secondLvSpellSlots;
+
+  location.reload();
+  window.scrollTo(0, 0);
+}
+
 export function loadPage() {
   menuCharName.textContent = localStorage.charName;
   charName.textContent = localStorage.charName;

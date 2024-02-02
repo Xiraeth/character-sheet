@@ -11,7 +11,10 @@ import {
   toggleBackgroundColor,
   updateLayOnHandsValues,
   filterNonNumbers,
+  longRest,
 } from "./functions.js";
+
+let previousValue;
 
 const stats = document.querySelector(".stats");
 const allAbilityElements = document.querySelectorAll(".stats > div");
@@ -37,6 +40,10 @@ const initiativeEl = document.querySelector("#initiative div:first-child");
 const speedEl = document.querySelector("#speed div:first-child");
 
 const layOnHandsForm = document.querySelector(".layOnHandsForm");
+const layOnHandsRemainingEl = document.querySelector(
+  "#layOnHandsRemainingValue"
+);
+const longRestBtn = document.querySelector("#longRestButton");
 
 window.addEventListener("load", (e) => {
   loadPage();
@@ -138,5 +145,23 @@ tempHPel.addEventListener("input", (e) => {
   toggleBackgroundColor(tempHPel);
 });
 
+layOnHandsRemainingEl.addEventListener("input", (e) => {
+  filterNonNumbers(e);
+  const remainingHeal = layOnHandsRemainingEl.textContent;
+  localStorage.setItem("layOnHandsRemaining", remainingHeal);
+});
+
+layOnHandsRemainingEl.addEventListener("focus", (e) => {
+  previousValue = layOnHandsRemainingEl.textContent;
+});
+
+layOnHandsRemainingEl.addEventListener("blur", (e) => {
+  if (layOnHandsRemainingEl.textContent > localStorage.charLevel * 5) {
+    layOnHandsRemainingEl.textContent = previousValue;
+    localStorage.setItem("layOnHandsRemaining", previousValue);
+  }
+});
+
 skillsContainer.addEventListener("click", toggleProficiency);
 savingThrowContainer.addEventListener("click", toggleSaveProficiency);
+longRestBtn.addEventListener("click", longRest);

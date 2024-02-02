@@ -175,7 +175,7 @@
   background: transparent;
   color: var(--main-text-color);
   border-radius: 5px;
-  box-shadow: 1px 1px 6px 1px rgba(0,0,0,0.5);
+  box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.5);
 }
 
 #takeDamage button {
@@ -187,7 +187,7 @@
   border-radius: 5px;
   background: transparent;
   transition: all 0.2s;
-  box-shadow: 1px 1px 6px 1px rgba(0,0,0,0.5);
+  box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.5);
 }
 
 #takeDamage button:active {
@@ -227,14 +227,14 @@
   text-align: center;
   width: 60px;
   outline: none;
-  box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.6);
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.6);
 }
 
 .layOnHandsForm > input:focus {
   outline: 1px solid tomato;
 }
 
-.layOnHandsForm > label {
+.layOnHandsForm > div {
   font-family: mord, Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 2rem;
   border-bottom: 1px solid black;
@@ -242,7 +242,7 @@
   padding: 10px;
 }
 
-.layOnHandsForm > label > span {
+.layOnHandsForm > div > span {
   transition: all 0.15s;
 }
 
@@ -253,7 +253,11 @@
   border: 1px solid black;
   border-radius: 5px;
   padding: 5px;
-  box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.6);
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.6);
+}
+
+#layOnHandsRemainingValue {
+  padding: 5px 10px;
 }
 
 #layOnHandsHealBtn {
@@ -265,7 +269,7 @@
   padding: 5px 15px;
   cursor: pointer;
   transition: all 0.15s;
-  box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.6);
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.6);
 }
 
 #layOnHandsHealBtn:active {
@@ -435,6 +439,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-bottom: 1px double var(--main-text-color);
 }
 
 #savingThrowsContainer > h1 {
@@ -483,4 +488,39 @@
   font-size: 0.7rem;
   margin-right: 10px;
   color: var(--main-text-color);
+}
+
+.rest {
+  width: 80%;
+  padding-top: 20px;
+  margin: 10px auto 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.rest h1 {
+  color: var(--secondary-text-color);
+  text-decoration: underline;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+#longRestButton {
+  color: springgreen;
+  background-color: transparent;
+  width: 100%;
+  border: 1px solid var(--main-text-color);
+  border-radius: 5px;
+  padding: 5px 15px;
+  font-size: 1.7rem;
+  box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.5);
+  transition: all 0.15s;
+}
+
+#longRestButton:active {
+  color: var(--main-text-color);
+  background-color: springgreen;
+  transform: translateY(3px);
+  box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.4);
 }
