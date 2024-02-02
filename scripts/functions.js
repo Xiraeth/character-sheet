@@ -5,7 +5,7 @@ const MAIN_TEXT_COLOR = "rgb(230, 230, 250)";
 
 const allAbilityElements = document.querySelectorAll(".stats > div");
 const allSkills = document.querySelectorAll("#skills > div");
-const allSavingThrows = document.querySelectorAll('#savingThrows > div');
+const allSavingThrows = document.querySelectorAll("#savingThrows > div");
 const menu = document.querySelector(".leftNavbar");
 const takeDamageInput = document.querySelector("#takeDamage > input");
 const profBonusSpan = document.querySelector("#skillsContainer > h1 > span");
@@ -33,7 +33,6 @@ const layOnHandsMaxEl = document.querySelector("#layOnHandsMaxValue");
 const layOnHandsRemainingEl = document.querySelector(
   "#layOnHandsRemainingValue"
 );
-
 
 let proficiencies = JSON.parse(localStorage.profsArray ?? "[]");
 let savingThrowProfs = JSON.parse(localStorage.savingThrowProfs ?? "[]");
@@ -111,22 +110,22 @@ export function getAbilityScoreModifier(abilityScoreElement) {
 }
 
 export function calculateSavingThrowModifiers() {
-  allSavingThrows.forEach(savingThrow => {
+  allSavingThrows.forEach((savingThrow) => {
     const saveDiv = savingThrow;
-    const abilityNameEl = saveDiv.querySelector('div');
+    const abilityNameEl = saveDiv.querySelector("div");
     const abilityName = abilityNameEl.textContent.trim();
     const abilityNameShort = abilityNameEl.dataset.save;
 
     // The dot next to the abiliy name
-    const iEl = saveDiv.querySelector('i');
+    const iEl = saveDiv.querySelector("i");
 
-    const savingThrowModifierEl = saveDiv.querySelector('span');
+    const savingThrowModifierEl = saveDiv.querySelector("span");
 
     const statDiv = document.querySelector(`.stats > .${abilityNameShort}`);
     const abilityModifier = Number(
       statDiv.querySelector(`div > .modifier`).textContent.slice(1, -1)
     );
-    
+
     if (isNaN(abilityModifier)) {
       skillModifierEl.textContent = "-";
       return;
@@ -140,8 +139,8 @@ export function calculateSavingThrowModifiers() {
     } else {
       savingThrowModifierEl.textContent = abilityModifier;
       iEl.className = "fa-regular fa-circle";
-  }
-  })
+    }
+  });
 }
 
 export function calculateSkillModifiers() {
@@ -177,7 +176,7 @@ export function toggleProficiency(e) {
   if (!targetDiv) return;
 
   console.log(targetDiv);
-  
+
   const abilityNamePara = targetDiv.querySelector("div");
 
   const abilityName = abilityNamePara.textContent;
@@ -193,23 +192,23 @@ export function toggleProficiency(e) {
 }
 
 export function toggleSaveProficiency(e) {
-  const targetDiv = e.target.closest('.saveDiv');
+  const targetDiv = e.target.closest(".saveDiv");
   if (!targetDiv) return;
-  
-  const abilityNameEl = targetDiv.querySelector('div');
+
+  const abilityNameEl = targetDiv.querySelector("div");
   const abilityName = abilityNameEl.textContent.trim();
 
-  const iEl = targetDiv.querySelector('i');
-  
+  const iEl = targetDiv.querySelector("i");
+
   if (savingThrowProfs.includes(abilityName)) {
-    savingThrowProfs = savingThrowProfs.filter(save => save !== abilityName);
+    savingThrowProfs = savingThrowProfs.filter((save) => save !== abilityName);
     iEl.className = "fa-regular fa-circle";
   } else {
     savingThrowProfs.push(abilityName);
     iEl.className = "fa-solid fa-circle";
   }
 
-  abilityNameEl.classList.toggle('profColor');
+  abilityNameEl.classList.toggle("profColor");
   localStorage.setItem("savingThrowProfs", JSON.stringify(savingThrowProfs));
 
   calculateSavingThrowModifiers();
@@ -297,4 +296,38 @@ function checkForBackgroundColorOnLoad() {
   toggleBackgroundColor(initiativeEl);
   toggleBackgroundColor(speedEl);
   toggleBackgroundColor(profBonusSpan);
+}
+
+// Filter non-numbers for HP inputs:
+export function filterNonNumbers(e) {
+  let inputText = e.target.innerText;
+  let caretPosition = getCaretPosition(e.target);
+
+  let numericText = inputText.replace(/[^0-9]/g, ""); // Remove non-numeric characters
+  e.target.innerText = numericText;
+  setSelectionRange(e.target, caretPosition, caretPosition);
+}
+
+function getCaretPosition(element) {
+  if (window.getSelection && window.getSelection().getRangeAt) {
+    const range = window.getSelection().getRangeAt(0);
+    const preCaretRange = range.cloneRange();
+    preCaretRange.selectNodeContents(element);
+    preCaretRange.setEnd(range.endContainer, range.endOffset);
+    return preCaretRange.toString().length;
+  }
+  return 0;
+}
+
+function setSelectionRange(element, start, end) {
+  if (document.createRange && window.getSelection) {
+    let range = document.createRange();
+    range.selectNodeContents(element);
+    let textNode = element.firstChild;
+    range.setStart(textNode, start);
+    range.setEnd(textNode, end);
+    let sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  }
 }

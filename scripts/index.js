@@ -10,6 +10,7 @@ import {
   layOnHandsHeal,
   toggleBackgroundColor,
   updateLayOnHandsValues,
+  filterNonNumbers,
 } from "./functions.js";
 
 const stats = document.querySelector(".stats");
@@ -18,7 +19,7 @@ const takeDamageBtn = document.querySelector("#takeDamage > button");
 const profBonusSpan = document.querySelector("#skillsContainer > h1 > span");
 const menuCharName = document.querySelector("#menuCharName");
 const skillsContainer = document.querySelector("#skills");
-const savingThrowContainer = document.querySelector('#savingThrows');
+const savingThrowContainer = document.querySelector("#savingThrows");
 
 const charDetails = document.querySelector("#character-details");
 const charName = document.querySelector("#character-name");
@@ -36,7 +37,6 @@ const initiativeEl = document.querySelector("#initiative div:first-child");
 const speedEl = document.querySelector("#speed div:first-child");
 
 const layOnHandsForm = document.querySelector(".layOnHandsForm");
-
 
 window.addEventListener("load", (e) => {
   loadPage();
@@ -104,27 +104,31 @@ stats.addEventListener("input", (e) => {
   calculateSavingThrowModifiers();
 });
 
-profBonusSpan.addEventListener("input", () => {
+profBonusSpan.addEventListener("input", (e) => {
+  filterNonNumbers(e);
   localStorage.profBonus = profBonusSpan.textContent;
   toggleBackgroundColor(profBonusSpan);
   calculateSkillModifiers();
   calculateSavingThrowModifiers();
 });
 
-currentHPel.addEventListener("input", () => {
+currentHPel.addEventListener("input", (e) => {
+  filterNonNumbers(e);
   localStorage.setItem("currentHP", currentHPel.textContent);
   toggleBackgroundColor(currentHPel);
 });
 
-maxHPel.addEventListener("input", () => {
+maxHPel.addEventListener("input", (e) => {
+  filterNonNumbers(e);
   localStorage.setItem("maxHP", maxHPel.textContent);
   toggleBackgroundColor(maxHPel);
 });
 
-tempHPel.addEventListener("input", () => {
+tempHPel.addEventListener("input", (e) => {
+  filterNonNumbers(e);
   localStorage.setItem("tempHP", tempHPel.textContent);
   toggleBackgroundColor(tempHPel);
 });
 
 skillsContainer.addEventListener("click", toggleProficiency);
-savingThrowContainer.addEventListener('click', toggleSaveProficiency);
+savingThrowContainer.addEventListener("click", toggleSaveProficiency);
