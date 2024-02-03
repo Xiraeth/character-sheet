@@ -13,6 +13,7 @@ import {
   toggleAuraBonus,
   filterNonNumbers,
   longRest,
+  calcInitiative,
 } from "./functions.js";
 
 let previousValue;
@@ -122,6 +123,9 @@ stats.addEventListener("input", (e) => {
   );
   calculateSkillModifiers();
   calculateSavingThrowModifiers();
+  const targetAbility = e.target.parentElement.parentElement;
+  console.log(targetAbility);
+  if (targetAbility.classList.contains("dex")) calcInitiative();
 });
 
 profBonusSpan.addEventListener("input", (e) => {

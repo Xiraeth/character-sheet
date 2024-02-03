@@ -54,6 +54,17 @@ export function flashColor(el, color) {
   }, 250);
 }
 
+export function calcInitiative() {
+  const dexModifier = Number(
+    document
+      .querySelector(".stats > .dex > div > .modifier")
+      .textContent.slice(1, -1)
+  );
+
+  initiativeEl.textContent = dexModifier;
+  localStorage.initiative = Number(initiativeEl.textContent);
+}
+
 export function takeDamage() {
   if (takeDamageInput.value == "") return;
 
