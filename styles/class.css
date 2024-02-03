@@ -32,3 +32,19 @@
 .ab-scoreImprov h2 {
   font-size: 25px;
 }
+
+ul {
+  list-style: disc;
+  margin-left: 20px;
+}
+
+.classFeatureSection h4 {
+  color: mediumspringgreen;
+  text-align: center;
+}
+
+.classFeatureSection h5 {
+  color: tomato;
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
