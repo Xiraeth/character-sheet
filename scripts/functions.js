@@ -33,9 +33,11 @@ const layOnHandsMaxEl = document.querySelector("#layOnHandsMaxValue");
 const layOnHandsRemainingEl = document.querySelector(
   "#layOnHandsRemainingValue"
 );
+const auraCheck = document.querySelector("#auraOfProtection");
 
 let proficiencies = JSON.parse(localStorage.profsArray ?? "[]");
 let savingThrowProfs = JSON.parse(localStorage.savingThrowProfs ?? "[]");
+let auraBonusActive = localStorage.auraBonusActive === "true";
 
 export function showMenu() {
   menu.style.transform = "translateX(0)";
@@ -124,6 +126,13 @@ export function calculateSavingThrowModifiers() {
       statDiv.querySelector(`div > .modifier`).textContent.slice(1, -1)
     );
 
+    const chaModifier = Number(
+      document
+        .querySelector(".stats > .cha > div > .modifier")
+        .textContent.slice(1, -1)
+    );
+    const auraBonus = auraBonusActive == true ? chaModifier : 0;
+
     if (isNaN(abilityModifier)) {
       savingThrowModifierEl.textContent = "-";
       return;
@@ -131,11 +140,11 @@ export function calculateSavingThrowModifiers() {
 
     if (savingThrowProfs.includes(abilityName)) {
       savingThrowModifierEl.textContent =
-        Number(profBonusSpan.textContent) + abilityModifier;
+        Number(profBonusSpan.textContent) + abilityModifier + auraBonus;
       abilityNameEl.classList.add("profColor");
       iEl.className = "fa-solid fa-circle";
     } else {
-      savingThrowModifierEl.textContent = abilityModifier;
+      savingThrowModifierEl.textContent = abilityModifier + auraBonus;
       iEl.className = "fa-regular fa-circle";
     }
   });
@@ -244,6 +253,11 @@ export function layOnHandsHeal(e) {
   }
 }
 
+export function toggleAuraBonus() {
+  auraBonusActive = !auraBonusActive;
+  localStorage.auraBonusActive = auraBonusActive;
+}
+
 export function toggleBackgroundColor(element) {
   if (element.textContent.trim() !== "") {
     element.style.backgroundColor = "transparent";
@@ -296,6 +310,8 @@ export function loadPage() {
   charDetailsSpanEls.forEach((span) => {
     toggleBackgroundColor(span);
   });
+  if (auraBonusActive) auraOfProtection.className = "fa-solid fa-square-check";
+  else auraOfProtection.className = "fa-regular fa-square";
   checkForBackgroundColorOnLoad();
 }
 

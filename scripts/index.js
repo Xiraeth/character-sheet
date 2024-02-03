@@ -10,6 +10,7 @@ import {
   layOnHandsHeal,
   toggleBackgroundColor,
   updateLayOnHandsValues,
+  toggleAuraBonus,
   filterNonNumbers,
   longRest,
 } from "./functions.js";
@@ -44,8 +45,11 @@ const layOnHandsForm = document.querySelector(".layOnHandsForm");
 const layOnHandsRemainingEl = document.querySelector(
   "#layOnHandsRemainingValue"
 );
+
+const aopCheck = document.querySelector("#auraOfProtection");
 const longRestBtn = document.querySelector("#longRestButton");
 
+// Load values on page load
 window.addEventListener("load", (e) => {
   loadPage();
   allAbilityElements.forEach((el) => {
@@ -172,6 +176,16 @@ layOnHandsRemainingEl.addEventListener("blur", () => {
     layOnHandsRemainingEl.textContent = previousValue;
     localStorage.setItem("layOnHandsRemaining", previousValue);
   }
+});
+
+aopCheck.addEventListener("click", (e) => {
+  if (localStorage.auraBonusActive === "false") {
+    e.target.className = "fa-solid fa-square-check";
+  } else {
+    e.target.className = "fa-regular fa-square";
+  }
+  toggleAuraBonus();
+  calculateSavingThrowModifiers();
 });
 
 skillsContainer.addEventListener("click", toggleProficiency);

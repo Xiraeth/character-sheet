@@ -449,6 +449,20 @@
   font-family: chance;
 }
 
+.AoPContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  gap: 20px;
+}
+
+.AoPContainer i {
+  font-size: 1.5rem;
+  color: springgreen;
+  cursor: pointer;
+}
+
 #savingThrows {
   width: 70%;
   margin: 10px auto 20px;
