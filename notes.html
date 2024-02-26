@@ -16,12 +16,12 @@
     ></script>
     <script src="scripts/navigate.js" type="module" defer></script>
   </head>
-
+  
   <body>
     <div class="menuIcon">
       <i class="fa-solid fa-bars"></i>
     </div>
-
+    
     <div class="leftNavbar">
       <i class="fa-solid fa-xmark"></i>
       <div><a href="index.html" id="menuCharName">Malady</a></div>
@@ -31,9 +31,18 @@
       <div><a href="inventory.html">Inventory</a></div>
       <div><a href="notes.html">Notes</a></div>
     </div>
-
+    
     <div class="pageHeader">
       <span style="font-family: chance">N</span>otebook
     </div>
+    
+    <div id="notebookContainer">
+      <textarea name="notebook" id="notebook" cols="30 " rows="10"></textarea>
+    </div>
+    <div id="colorPickerContainer">
+      <i>Color picker</i>  
+      <input type="color" id="colorPicker">
+    </div>
+    <script src="scripts/notes.js"></script>
   </body>
 </html>

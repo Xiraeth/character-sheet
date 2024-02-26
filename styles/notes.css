@@ -1,0 +1,51 @@
+#notebookContainer {
+  margin: 20px auto 0;
+  text-align: center;
+}
+
+#notebook {
+  background: transparent;
+  border: 2px solid black;
+  outline: 2px solid var(--main-text-color-darker);
+  border-radius: 5px;
+  color: var(--notebook-text-color);
+  padding: 5px;
+  min-height: 50vh;
+  transition: all 0.1s;
+}
+
+#notebook:focus {
+  outline: 2px solid var(--main-text-color);
+}
+
+#colorPickerContainer {
+  margin: 20px auto 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+#colorPickerContainer > i {
+  font-size: 1.3rem;
+}
+
+input[type="color"] {
+  appearance: none;
+	-webkit-appearance: none;
+	border: none;
+  border-radius: 30px;
+  width: 50px;
+  height: 50px;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+  border-radius: 30px;
+}
+
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+  border-radius: 30px;
+}

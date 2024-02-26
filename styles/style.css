@@ -3,6 +3,7 @@
 @import url(race.css);
 @import url(spells.css);
 @import url(inventory.css);
+@import url(notes.css);
 
 @font-face {
   font-family: mord;
@@ -28,6 +29,8 @@ html {
   --bg-color: rgba(0, 0, 0, 0.75);
   --bg-color-secondary: rgba(124, 110, 161, 0.5);
   --main-text-color: rgb(230, 230, 250);
+  --main-text-color-darker: rgb(161, 161, 163);
+  --notebook-text-color: rgb(230, 230, 250);
   --secondary-text-color: #dd60dd;
 }
 

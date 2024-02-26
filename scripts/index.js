@@ -52,7 +52,7 @@ const longRestBtn = document.querySelector("#longRestButton");
 
 // Load values on page load
 window.addEventListener("load", (e) => {
-  loadPage();
+  loadPage();   
   allAbilityElements.forEach((el) => {
     const abilityScoreElement = el.querySelector(".abilityScore");
     getAbilityScoreModifier(abilityScoreElement);
