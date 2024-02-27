@@ -11,6 +11,12 @@
   color: var(--notebook-text-color);
   padding: 5px;
   min-height: 50vh;
+  width: 80%;
+  margin: auto;
+  text-align: start;
+  display: flex;
+  justify-content: start;
+  align-items: start;
   transition: all 0.1s;
 }
 
