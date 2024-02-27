@@ -2,6 +2,8 @@
 
 const textarea = document.getElementById("notebook");
 const colorPickerInput = document.getElementById("colorPicker");
+const menuCharName = document.querySelector("#menuCharName");
+
 let color = localStorage.textareaColor || document.documentElement.style.getPropertyValue('--notebook-text-color');
 
 window.addEventListener('load', loadNotebook);
@@ -24,7 +26,9 @@ function changeColor() {
 }
 
 function loadNotebook() {
+  menuCharName.textContent = localStorage.charName || 'Character';
   textarea.value = localStorage.notebook || '';
   colorPickerInput.value = localStorage.textareaColor;
   document.documentElement.style.setProperty('--notebook-text-color', color);
 }
+

@@ -3,8 +3,11 @@
 const addItemInput = document.querySelector("#addItemInput");
 const addItemBtn = document.querySelector("#addItemBtn");
 const inventoryList = document.querySelector("#inventoryList");
+const menuCharName = document.querySelector("#menuCharName");
 
 let inventoryArray = JSON.parse(localStorage.inventoryArray ?? "[]");
+
+menuCharName.textContent = localStorage.charName || 'Character';
 
 window.addEventListener("load", loadPageList);
 

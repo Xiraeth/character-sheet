@@ -32,6 +32,7 @@ html {
   --main-text-color-darker: rgb(161, 161, 163);
   --notebook-text-color: rgb(230, 230, 250);
   --secondary-text-color: #dd60dd;
+  --header-color: tomato;
 }
 
 body {
@@ -51,7 +52,7 @@ body {
   font-family: lohen, serif;
   font-size: 3rem;
   text-align: center;
-  color: tomato;
+  color: var(--header-color);
   width: 80%;
   margin: 0 auto;
   padding-bottom: 10px;

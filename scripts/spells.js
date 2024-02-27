@@ -1,7 +1,9 @@
 "use strict";
 
+const menuCharName = document.querySelector("#menuCharName");
 const spellSaveDC = document.querySelector("#spellSaveDC > span");
 const spellAtkBns = document.querySelector("#spellAtkBns > span");
+const toggleEditModeButton = document.querySelector(".editButtonContainer button");
 const firstLvSpellSlots = document.querySelector(
   ".firstLevelSpells > .spellSlots > .ss > span"
 );
@@ -14,8 +16,23 @@ const secondLvSpellSlots = document.querySelector(
 const secondLvExpended = document.querySelector(
   ".secondLevelSpells > .spellSlots > .expended > span"
 );
+const allAnchorElements = document.querySelectorAll('.spellsSection .spellList a')
+
+let editMode = false;
+
+toggleEditModeButton.addEventListener('click', () => {
+  editMode = editMode === false ? true : false;
+  if (editMode) toggleEditModeButton.style.backgroundColor = 'springgreen';
+  else toggleEditModeButton.style.backgroundColor = 'var(--header-color)';
+  allAnchorElements.forEach(el => {
+    if (editMode) {
+      el.a = "#";
+    }
+  })
+})
 
 window.addEventListener("load", function (e) {
+  menuCharName.textContent = localStorage.charName || 'Character';
   spellSaveDC.textContent = localStorage.spellSaveDC;
   spellAtkBns.textContent = localStorage.spellAtkBns;
   firstLvSpellSlots.textContent = Number(
